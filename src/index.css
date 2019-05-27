@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +9,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
   background: url(./resources/bg.jpg) center no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: fixed;
-  position: absolute;
+  position: relative;
   min-width: 100%;
   width: 100%;
   min-height: 100%;

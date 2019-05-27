@@ -1,0 +1,23 @@
+.wrapper {
+  background: transparent;
+  position: absolute;
+  color: rgba(245, 245, 245, 0.9);
+  margin: 100px;
+  width: 580px;
+  height: 250px;
+  border-top: 4px solid rgb(245, 245, 245);
+  border-bottom: 4px solid rgb(245, 245, 245);
+  bottom: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 54px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
