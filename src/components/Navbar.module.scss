@@ -1,11 +1,11 @@
 ul {
-  position: fixed;
-  top: 0;
+  position: relative;
+  background-color: rgb(245, 245, 245);
   left: auto;
   width: 100%;
   text-align: center;
-  padding: 0;
-  margin: 20px 0 0;
+  margin: 0;
+  padding: 20px 0 0;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -30,6 +30,7 @@ li:hover::after {
   transform: scaleX(1);
 }
 
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Raleway:700&display=swap');
 li a {
   color: rgba(160, 160, 160, 0.8);
   font-family: 'Catamaran', sans-serif;
