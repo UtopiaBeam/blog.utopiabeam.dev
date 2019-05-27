@@ -1,13 +1,13 @@
 import React from 'react';
-import './Navbar.module.scss';
+import styles from './Navbar.module.scss';
 
 export default () => {
   return (
-    <ul>
-      <li>
+    <ul className={styles.ul}>
+      <li className={styles.li}>
         <a href="https://utopiabeam.dev">home</a>
       </li>
-      <li>
+      <li className={styles.li}>
         <a href="https://osu.ppy.sh/u/UtopiaBeam">osu!</a>
       </li>
     </ul>
