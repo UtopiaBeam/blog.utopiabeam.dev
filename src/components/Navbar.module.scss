@@ -17,22 +17,9 @@ li {
   list-style-type: none;
 }
 
-li::after {
-  display: block;
-  border-bottom: 0.2em solid rgba(124, 142, 215, 0.6);
-  content: '';
-  transform: scaleX(0);
-  transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-}
-
-li:hover::after {
-  transform: scaleX(1);
-}
-
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Raleway:700&display=swap');
 li a {
-  color: rgba(160, 160, 160, 0.8);
+  color: rgb(40, 40, 40);
   font-family: 'Catamaran', sans-serif;
   font-size: 22px;
   letter-spacing: 2px;
@@ -41,6 +28,19 @@ li a {
   -webkit-transition: color 0.2s ease-in-out;
 }
 
+li a::after {
+  display: block;
+  border-bottom: 0.2em solid rgba(124, 142, 215, 0.6);
+  content: '';
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+}
+
 li a:hover {
-  color: rgba(124, 142, 215, 0.8);
+  color: rgb(124, 142, 215);
+}
+
+li a:hover::after {
+  transform: scaleX(1);
 }
