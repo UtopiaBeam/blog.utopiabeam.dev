@@ -1,0 +1,23 @@
+.text {
+  background: transparent;
+  position: absolute;
+  color: rgba(245, 245, 245, 0.9);
+  margin: 7.5%;
+  bottom: 0;
+  left: 0;
+  border-top: 4px solid rgb(245, 245, 245);
+  border-bottom: 4px solid rgb(245, 245, 245);
+  width: 40%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+.text h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 54px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+.text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
