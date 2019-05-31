@@ -1,14 +1,23 @@
-ul {
+.navbar,
+.fixedNavbar {
   position: relative;
   background-color: rgb(245, 245, 245);
   left: auto;
   width: 100%;
   text-align: center;
   margin: 0;
-  padding: 20px 0 0;
+  padding: 20px 0 10px 10px;
   z-index: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.fixedNavbar {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 7px 10px -10px rgb(40, 40, 40);
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 li {
@@ -28,7 +37,7 @@ li a {
   -webkit-transition: color 0.2s ease-in-out;
 }
 
-li a::after {
+.li a::after {
   display: block;
   border-bottom: 0.2em solid rgba(124, 142, 215, 0.6);
   content: '';
@@ -37,10 +46,15 @@ li a::after {
   -webkit-transition: transform 0.2s ease-in-out;
 }
 
-li a:hover {
+.li a:hover {
   color: rgb(124, 142, 215);
 }
 
-li a:hover::after {
+.li a:hover::after {
   transform: scaleX(1);
+}
+
+.logo {
+  font-family: 'Space Mono', 'sans serif';
+  font-size: 1em;
 }
