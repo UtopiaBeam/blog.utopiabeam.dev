@@ -22,10 +22,10 @@ export default () => {
       <li className={styles.logo}>
         <a href="https://utopiabeam.dev">{'{UtopiaBeam}'}</a>
       </li>
-      <li className={styles.li}>
+      <li className={styles.menu}>
         <Link to="/">Home</Link>
       </li>
-      <li className={styles.li}>
+      <li className={styles.menu}>
         <a href="https://osu.ppy.sh/u/UtopiaBeam">osu!</a>
       </li>
     </ul>

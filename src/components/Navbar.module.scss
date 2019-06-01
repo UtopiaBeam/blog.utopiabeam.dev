@@ -9,8 +9,8 @@
   padding: 20px 0 10px 10px;
   z-index: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 .fixedNavbar {
@@ -21,7 +21,6 @@
 }
 
 li {
-  padding-top: 1em;
   margin: 0 1.5em;
   list-style-type: none;
 }
@@ -31,13 +30,16 @@ li a {
   color: rgb(40, 40, 40);
   font-family: 'Catamaran', sans-serif;
   font-size: 22px;
-  letter-spacing: 2px;
   text-decoration: none;
+}
+
+.menu a {
+  letter-spacing: 2px;
   transition: color 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out;
 }
 
-.li a::after {
+.menu a::after {
   display: block;
   border-bottom: 0.2em solid rgba(124, 142, 215, 0.6);
   content: '';
@@ -46,15 +48,22 @@ li a {
   -webkit-transition: transform 0.2s ease-in-out;
 }
 
-.li a:hover {
+.menu a:hover {
   color: rgb(124, 142, 215);
 }
 
-.li a:hover::after {
+.menu a:hover::after {
   transform: scaleX(1);
 }
 
-.logo {
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:700&display=swap');
+.logo a {
   font-family: 'Space Mono', 'sans serif';
-  font-size: 1em;
+  font-size: 1.5em;
+  letter-spacing: 0;
+  transition: font-size 0.1s ease-in-out;
+}
+
+.logo a:hover {
+  font-size: 1.7em;
 }
