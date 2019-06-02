@@ -32,9 +32,6 @@ export default () => {
         <li className={styles.menu}>
           <Link to="/">Home</Link>
         </li>
-        <li className={styles.menu}>
-          <a href="https://osu.ppy.sh/u/UtopiaBeam">osu!</a>
-        </li>
       </ul>
       <form className={styles.rightNavbar} onSubmit={handleSubmit}>
         <input
