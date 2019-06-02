@@ -3,14 +3,14 @@
   position: absolute;
   background-color: rgb(245, 245, 245);
   left: auto;
-  width: 100%;
+  width: 100vw;
   text-align: center;
   margin: 0;
-  padding: 20px 0 10px 10px;
+  padding-bottom: 10px;
   z-index: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fixedNavbar {
@@ -20,9 +20,26 @@
   transition: box-shadow 0.1s ease-in-out;
 }
 
+.leftNavbar {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.rightNavbar {
+  padding-top: 10px;
+  padding-right: 30px;
+}
+
 li {
   margin: 0 1.5em;
   list-style-type: none;
+}
+
+ul {
+  padding: 0;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Raleway:700&display=swap');
@@ -61,9 +78,13 @@ li a {
   font-family: 'Space Mono', 'sans serif';
   font-size: 1.5em;
   letter-spacing: 0;
-  transition: font-size 0.1s ease-in-out;
 }
 
-.logo a:hover {
-  font-size: 1.7em;
+.searchBox {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 18px;
+  width: 400px;
+  padding: 0.15em 1em;
+  border: 1px solid black;
+  border-radius: 1em;
 }
