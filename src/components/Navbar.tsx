@@ -7,16 +7,16 @@ export default () => {
   const [fixed, setFixed] = useState(false);
   const [searchText, setSearchText] = useState('');
 
-  function handleScroll(): void {
+  function handleScroll() {
     setFixed(window.pageYOffset > window.innerHeight);
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e) {
     e.preventDefault();
     console.log(searchText);
   }
 
-  useEffect((): void => {
+  useEffect(() => {
     if (!initialized) {
       window.addEventListener('scroll', handleScroll);
       setInitialized(true);
