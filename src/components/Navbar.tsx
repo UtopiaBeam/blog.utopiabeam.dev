@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import { Link } from 'react-router-dom';
 
