@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 export default () => {
   const [initialized, setInitialized] = useState(false);
   const [fixed, setFixed] = useState(false);
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
 
   function handleScroll() {
     setFixed(window.pageYOffset > window.innerHeight);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(searchText);
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(searchText);
+  // }
 
   useEffect(() => {
     if (!initialized) {
@@ -33,14 +33,14 @@ export default () => {
           <Link to="/">Home</Link>
         </li>
       </ul>
-      <form className={styles.rightNavbar} onSubmit={handleSubmit}>
+      {/* <form className={styles.rightNavbar} onSubmit={handleSubmit}>
         <input
           className={styles.searchBox}
           placeholder="Type to search"
           value={searchText}
           onChange={e => setSearchText(e.target.value)}
         />
-      </form>
+      </form> */}
     </nav>
   );
 };
