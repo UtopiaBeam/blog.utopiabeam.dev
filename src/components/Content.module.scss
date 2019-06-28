@@ -1,7 +1,10 @@
+@import '../index.module.scss';
+$padding-side: 7vw;
+
 .content {
-    position: absolute;
-    background-color: rgb(245, 245, 245);
-    width: 90%;
-    height: 100vh;
-    padding: calc(3% + 70px) 5% 5%;
+  position: relative;
+  background-color: $white;
+  width: 100vw - 2 * $padding-side;
+  height: 100vh;
+  padding: 5vh $padding-side 5vh;
 }

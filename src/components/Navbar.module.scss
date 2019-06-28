@@ -1,33 +1,21 @@
-.navbar,
-.fixedNavbar {
-  position: absolute;
-  background-color: rgb(245, 245, 245);
+@import '../index.module.scss';
+
+.navbar {
+  position: fixed;
   left: auto;
   width: 100vw;
   text-align: center;
   margin: 0;
+  padding-top: 20px;
   z-index: 1;
+  background-color: $white;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fixedNavbar {
-  position: fixed;
-  top: 0;
-  box-shadow: 0 7px 10px -10px rgb(40, 40, 40);
-  transition: box-shadow 0.1s ease-in-out;
-  -webkit-transition: box-shadow 0.1s ease-in-out;
-}
-
-.leftNavbar {
-  display: flex;
+  justify-content: flex-start;
   align-items: baseline;
-  width: 50%;
+  box-shadow: 0 7px 10px -10px $black;
 }
-
-.rightNavbar {
-  padding-right: 30px;
+ul {
+  padding: 0;
 }
 
 li {
@@ -35,13 +23,9 @@ li {
   list-style-type: none;
 }
 
-ul {
-  padding: 0;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Raleway:700&display=swap');
 li a {
-  color: rgb(40, 40, 40);
+  color: $black;
   font-family: 'Catamaran', sans-serif;
   font-size: 22px;
   text-decoration: none;
@@ -49,25 +33,24 @@ li a {
 
 .menu a {
   letter-spacing: 1px;
-  transition: color 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out;
-}
+  transition: color 0.1s ease-in-out;
+  -webkit-transition: color 0.1s ease-in-out;
 
-.menu a::after {
-  display: block;
-  border-bottom: 0.2em solid rgba(124, 142, 215, 0.6);
-  content: '';
-  transform: scaleX(0);
-  transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-}
+  &::after {
+    display: block;
+    border-bottom: 0.2em solid $orange;
+    content: '';
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+  }
 
-.menu a:hover {
-  color: rgb(124, 142, 215);
-}
-
-.menu a:hover::after {
-  transform: scaleX(1);
+  &:hover {
+    color: $orange;
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:700&display=swap');
@@ -75,13 +58,5 @@ li a {
   font-family: 'Space Mono', 'sans serif';
   font-size: 1.5em;
   letter-spacing: 0;
-}
-
-.searchBox {
-  font-family: 'Catamaran', sans-serif;
-  font-size: 18px;
-  width: 400px;
-  padding: 0.15em 1em;
-  border: 1px solid rgba(40, 40, 40, 0.5);
-  border-radius: 1em;
+  color: $black;
 }
