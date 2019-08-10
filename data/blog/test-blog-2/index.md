@@ -1,9 +1,8 @@
 ---
 title: Wow!
-slug: test-blog-2
 description: Such doge!
 date: "2019-04-30"
-banner: './'
+banner: ./banner.jpg
 featured: false
 ---
 

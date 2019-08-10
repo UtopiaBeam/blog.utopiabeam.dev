@@ -4386,6 +4386,11 @@ gatsby-core-utils@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.3.tgz#f7616192ac0b4d0fc04587d924533c3cece70980"
 
+gatsby-core-utils@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.4.tgz#098b5b2f444faadd3bc9f7e20bd0a092129882ba"
+  integrity sha512-r9HhRvnaPFliO9IzN6Yz2xTsZ8vtWKvzQHz0GwW3iFe6KkhXC+Y1p8eEaorRz6AnOE6sRbWaeqpe3AA6FbKr2g==
+
 gatsby-graphiql-explorer@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-0.2.2.tgz#52483064f4c970f0a626a8cf6c49247918f7aa65"
@@ -4458,19 +4463,22 @@ gatsby-plugin-react-helmet@^3.1.1:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-sharp@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.4.tgz#b4d7210d5e3b77c8f4a1858ce838e332f476c65a"
+gatsby-plugin-sharp@^2.2.11:
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.11.tgz#ba614776e624e66a687d294373b2f452503cde75"
+  integrity sha512-LlQDd8XydRgSUb428Ucqw5rwVno4weK6o8osFu6exAaIb4O9hmhnR8bOdu5QQ+7KkLiMxAjf1c+arOEmfAaAVg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     async "^2.1.2"
     bluebird "^3.5.0"
     fs-extra "^7.0.0"
+    gatsby-core-utils "^1.0.4"
+    got "^8.3.2"
     imagemin "^6.0.0"
     imagemin-mozjpeg "^8.0.0"
     imagemin-pngquant "^6.0.0"
     imagemin-webp "^5.0.0"
-    lodash "^4.17.10"
+    lodash "^4.17.14"
     mini-svg-data-uri "^1.0.0"
     potrace "^2.1.1"
     probe-image-size "^4.0.0"
@@ -4494,6 +4502,36 @@ gatsby-react-router-scroll@^2.1.2:
     "@babel/runtime" "^7.0.0"
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
+
+gatsby-remark-copy-linked-files@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.4.tgz#b545897122a19ff3a719d6673035cf53b2b9414b"
+  integrity sha512-CEJYF4mj3Z4+s9yoUOyaQA/L0deydC/gu6Kay/PFwTyIDcgkWG1RFsFocEcEb6kbgimZxTElsbDk0MOulr1NIg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    cheerio "^1.0.0-rc.2"
+    fs-extra "^4.0.1"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.14"
+    path-is-inside "^1.0.2"
+    probe-image-size "^4.0.0"
+    unist-util-visit "^1.3.0"
+
+gatsby-remark-images@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.1.8.tgz#64491e00076881feff9ea27bf44fabf93f8a0c85"
+  integrity sha512-ZfK5RYf1SKJociYfeCgXfzQLBm/15PBzT5D4J60DbGhqgR9MdiLR5ROU2TakSIDdQOdBU6p93zDAO9LkPqvpOA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    cheerio "^1.0.0-rc.2"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.14"
+    mdast-util-definitions "^1.2.0"
+    potrace "^2.1.1"
+    query-string "^6.1.0"
+    slash "^1.0.0"
+    unist-util-select "^1.5.0"
+    unist-util-visit-parents "^2.0.1"
 
 gatsby-remark-prismjs@^3.3.3:
   version "3.3.3"
@@ -4569,6 +4607,19 @@ gatsby-transformer-remark@^2.6.9:
     unist-util-remove-position "^1.1.2"
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
+
+gatsby-transformer-sharp@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.2.6.tgz#38da2c4a9e3acd7a20411cf9febf97df2db8081e"
+  integrity sha512-yRHEZrVPaP2oeccAPyzBff3xxXExsg8s7jFXsmRAbQVTYtP0PLmSJ3x59t3kbJZqbL4kTZhPrdsqg3KmGoAeTA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    bluebird "^3.5.0"
+    fs-extra "^7.0.0"
+    potrace "^2.1.1"
+    probe-image-size "^4.0.0"
+    semver "^5.6.0"
+    sharp "^0.22.1"
 
 gatsby@^2.13.15:
   version "2.13.15"
@@ -4929,7 +4980,7 @@ got@^7.0.0, got@^7.1.0:
     url-parse-lax "^1.0.0"
     url-to-options "^1.0.1"
 
-got@^8.3.1:
+got@^8.3.1, got@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/got/-/got-8.3.2.tgz#1d23f64390e97f776cac52e5b936e5f514d2e937"
   dependencies:
@@ -6397,7 +6448,7 @@ lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.1
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
 
-lodash@^4.17.14:
+lodash@^4.17.14, lodash@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
@@ -8277,6 +8328,15 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+query-string@^6.1.0:
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.8.2.tgz#36cb7e452ae11a4b5e9efee83375e0954407b2f6"
+  integrity sha512-J3Qi8XZJXh93t2FiKyd/7Ec6GNifsjKXUsVFkSBj/kjLsDylWhnCz4NT1bkPcKotttPW+QbKGqqPH8OoI2pdqw==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -9368,6 +9428,11 @@ spdy@^4.0.0:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+split-on-first@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/split-on-first/-/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
+  integrity sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -9485,6 +9550,11 @@ stream-shift@^1.0.0:
 strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
+
+strict-uri-encode@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
+  integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
 
 string-length@^2.0.0:
   version "2.0.0"
@@ -10139,7 +10209,7 @@ unist-util-visit-children@^1.0.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/unist-util-visit-children/-/unist-util-visit-children-1.1.3.tgz#92ba5807e3f54637be5de950263f9468942e7503"
 
-unist-util-visit-parents@^2.0.0:
+unist-util-visit-parents@^2.0.0, unist-util-visit-parents@^2.0.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-2.1.2.tgz#25e43e55312166f3348cae6743588781d112c1e9"
   dependencies:

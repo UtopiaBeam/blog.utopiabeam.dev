@@ -1,13 +1,20 @@
 const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+const { chunk } = require('lodash');
 
-const POST_PER_PAGE = 10;
+const POST_PER_PAGE = 8;
 
-// exports.onCreateNode = ({ node, getNode }) => {
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const fileNode = getNode(node.parent);
-//     console.log(`\n`, fileNode.relativePath);
-//   }
-// };
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: 'slug',
+      node,
+      value,
+    });
+  }
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -16,34 +23,59 @@ exports.createPages = async ({ graphql, actions }) => {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
-            id
-            html
-            frontmatter {
-              title
+            fields {
               slug
+            }
+            frontmatter {
               date(formatString: "MMM DD, YYYY")
               description
-              banner
               featured
+              title
+              banner {
+                childImageSharp {
+                  fluid {
+                    src
+                    srcSet
+                    srcSetWebp
+                    srcWebp
+                    tracedSVG
+                  }
+                }
+              }
             }
+            html
           }
         }
       }
     }
   `);
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { id, frontmatter, html } = node;
-    const { title, slug, description, date, banner } = frontmatter;
+  const blogs = result.data.allMarkdownRemark.edges;
+  const blogLists = chunk(blogs, POST_PER_PAGE);
+
+  // Create blog listing pages
+  blogLists.forEach((list, i) => {
     createPage({
-      path: slug,
+      path: i == 0 ? '/' : `/page/${i + 1}`,
+      component: path.resolve('src/templates/BlogList.tsx'),
+      context: {
+        currentPage: i + 1,
+        posts: blogLists[i].map(({ node }) => {
+          const { frontmatter, html, fields } = node;
+          return { ...frontmatter, html, slug: fields.slug };
+        }),
+      },
+    });
+  });
+
+  // Create blog posts
+  blogs.forEach(({ node }) => {
+    const { frontmatter, html, fields } = node;
+    createPage({
+      path: fields.slug,
       component: path.resolve('src/templates/BlogPost.tsx'),
       context: {
-        title,
-        slug,
-        description,
-        date,
-        banner,
+        ...frontmatter,
         html,
       },
     });
