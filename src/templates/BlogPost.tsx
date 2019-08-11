@@ -20,9 +20,7 @@ export default ({ pageContext }: Props) => {
   const { title, html, banner } = pageContext;
   return (
     <>
-      {banner === null ? null : (
-        <img src={banner.childImageSharp.fluid.src} alt="" />
-      )}
+      {banner ? <img src={banner.childImageSharp.fluid.src} alt="" /> : null}
       <Helmet title={title} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </>

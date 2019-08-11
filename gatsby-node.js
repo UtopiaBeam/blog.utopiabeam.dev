@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve('src/templates/BlogList.tsx'),
       context: {
         currentPage: i + 1,
-        posts: blogLists[i].map(({ node }) => {
+        posts: list.map(({ node }) => {
           const { frontmatter, html, fields } = node;
           return { ...frontmatter, html, slug: fields.slug };
         }),

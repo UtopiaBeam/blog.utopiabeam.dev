@@ -27,11 +27,11 @@ export default (props: BlogListProps) => {
   return (
     <div key={currentPage}>
       <h1>{currentPage}</h1>
-      {posts.map(post => (
+      {posts.map((post: Post) => (
         <>
           <Link to={post.slug}>{post.title}</Link>
           <h3>{post.description}</h3>
-          {/* <img src={post.banner.childImageSharp.fluid.src} /> */}
+          {post.banner ? <img src={post.banner.childImageSharp.fluid.src} /> : null}
         </>
       ))}
     </div>
