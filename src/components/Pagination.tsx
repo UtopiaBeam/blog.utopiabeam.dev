@@ -11,7 +11,9 @@ export default ({ numPage, currentPage }: Props) => {
     <>
       <Link to="/">{'<<'}</Link>
       {currentPage === 1 ? null : (
-        <Link to={`page/${currentPage - 1}`}>{'<'}</Link>
+        <Link to={currentPage === 2 ? '/' : `page/${currentPage - 1}`}>
+          {'<'}
+        </Link>
       )}
       {currentPage}
       {currentPage === numPage ? null : (
