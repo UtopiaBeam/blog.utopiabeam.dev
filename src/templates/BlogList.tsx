@@ -1,6 +1,7 @@
 import React from 'react';
 import { FluidObject } from 'gatsby-image';
 import { Link } from 'gatsby';
+import Pagination from '../components/Pagination';
 
 interface Post {
   title: string;
@@ -15,15 +16,16 @@ interface Post {
   html: string;
 }
 
-interface BlogListProps {
+interface Props {
   pageContext: {
+    numPage: number;
     currentPage: number;
     posts: Post[];
   };
 }
 
-export default (props: BlogListProps) => {
-  const { currentPage, posts } = props.pageContext;
+export default (props: Props) => {
+  const { numPage, currentPage, posts } = props.pageContext;
   return (
     <div key={currentPage}>
       <h1>{currentPage}</h1>
@@ -31,9 +33,12 @@ export default (props: BlogListProps) => {
         <>
           <Link to={post.slug}>{post.title}</Link>
           <h3>{post.description}</h3>
-          {post.banner ? <img src={post.banner.childImageSharp.fluid.src} /> : null}
+          {post.banner ? (
+            <img src={post.banner.childImageSharp.fluid.src} />
+          ) : null}
         </>
       ))}
+      <Pagination numPage={numPage} currentPage={currentPage} />
     </div>
   );
 };

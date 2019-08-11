@@ -59,6 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: i == 0 ? '/' : `/page/${i + 1}`,
       component: path.resolve('src/templates/BlogList.tsx'),
       context: {
+        numPage: blogLists.length,
         currentPage: i + 1,
         posts: list.map(({ node }) => {
           const { frontmatter, html, fields } = node;
