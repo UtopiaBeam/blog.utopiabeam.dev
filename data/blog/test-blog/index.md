@@ -1,6 +1,5 @@
 ---
 title: Test blog
-slug: test-blog
 description: Just a test blog. I'm noob.
 date: "2019-07-23"
 banner: './'

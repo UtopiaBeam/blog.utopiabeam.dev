@@ -5,10 +5,9 @@ module.exports = {
     author: 'Natchapol Srisang {UtopiaBeam}',
   },
   plugins: [
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -16,10 +15,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1000,
+              maxWidth: 1920,
               linkImagesToOriginal: false,
               withWebp: true,
-              quality: 80,
             },
           },
           `gatsby-remark-copy-linked-files`,
@@ -42,5 +40,6 @@ module.exports = {
         path: `${__dirname}/data/blog`,
       },
     },
+    `gatsby-plugin-typescript`,
   ],
 };
