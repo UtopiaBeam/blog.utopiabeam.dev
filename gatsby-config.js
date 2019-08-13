@@ -10,16 +10,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blogs`,
-        path: `${__dirname}/data/blog`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+              withWebp: true,
+              quality: 80,
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -29,18 +32,14 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1000,
-              linkImagesToOriginal: false,
-              backgroundColor: `rgb(60, 60, 60)`,
-              withWebp: true,
-              quality: 80,
-            },
-          },
-          `gatsby-remark-copy-linked-files`,
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blogs`,
+        path: `${__dirname}/data/blog`,
       },
     },
   ],
