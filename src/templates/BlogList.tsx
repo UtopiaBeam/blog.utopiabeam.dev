@@ -1,7 +1,7 @@
 import React from 'react';
 import { FluidObject } from 'gatsby-image';
-import { Link } from 'gatsby';
 import Pagination from '../components/Pagination';
+import Card from '../components/Card';
 
 interface Post {
   title: string;
@@ -13,7 +13,6 @@ interface Post {
       fluid: FluidObject;
     };
   };
-  html: string;
 }
 
 interface Props {
@@ -26,19 +25,11 @@ interface Props {
 
 export default (props: Props) => {
   const { numPage, currentPage, posts } = props.pageContext;
+  const blogCards = posts.map((post: Post) => <Card {...post} />);
   return (
-    <div key={currentPage}>
-      <h1>{currentPage}</h1>
-      {posts.map((post: Post) => (
-        <>
-          <Link to={post.slug}>{post.title}</Link>
-          <h3>{post.description}</h3>
-          {post.banner ? (
-            <img src={post.banner.childImageSharp.fluid.src} />
-          ) : null}
-        </>
-      ))}
+    <>
+      {blogCards}
       <Pagination numPage={numPage} currentPage={currentPage} />
-    </div>
+    </>
   );
 };
