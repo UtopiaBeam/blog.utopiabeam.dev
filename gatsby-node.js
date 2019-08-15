@@ -33,12 +33,15 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               banner {
                 childImageSharp {
-                  fluid {
+                  fluid(maxWidth: 1920) {
+                    base64
+                    tracedSVG
+                    aspectRatio
                     src
                     srcSet
-                    srcSetWebp
                     srcWebp
-                    tracedSVG
+                    srcSetWebp
+                    sizes
                   }
                 }
               }
@@ -62,8 +65,8 @@ exports.createPages = async ({ graphql, actions }) => {
         numPage: blogLists.length,
         currentPage: i + 1,
         posts: list.map(({ node }) => {
-          const { frontmatter, html, fields } = node;
-          return { ...frontmatter, html, slug: fields.slug };
+          const { frontmatter, fields } = node;
+          return { ...frontmatter, slug: fields.slug };
         }),
       },
     });
