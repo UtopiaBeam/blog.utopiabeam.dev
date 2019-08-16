@@ -8,6 +8,7 @@ interface Props {
   title: string;
   slug: string;
   description: string;
+  date: string;
   banner?: {
     childImageSharp: {
       fluid: FluidObject;
@@ -36,11 +37,16 @@ const BlogTitle = styled(Heading)`
   color: rgb(10, 10, 10);
 `;
 
+const BlogDate = styled(Text)`
+  font-size: 0.85em;
+  color: rgba(10, 10, 10, 0.5);
+`;
+
 const BlogText = styled(Text)`
   color: rgba(10, 10, 10, 0.8);
 `;
 
-export default ({ title, slug, description, banner }: Props) => {
+export default ({ title, slug, description, date, banner }: Props) => {
   const cardBanner = banner ? (
     <Banner fluid={banner.childImageSharp.fluid} />
   ) : null;
@@ -49,9 +55,10 @@ export default ({ title, slug, description, banner }: Props) => {
     <>
       <GlobalStyle />
       <Link to={slug}>
-        <BlogCard m={3} width={[1 / 2]}>
+        <BlogCard m={3}>
           {cardBanner}
           <Box p={3}>
+            <BlogDate mb={2}>{date}</BlogDate>
             <BlogTitle as="h1">{title}</BlogTitle>
             <BlogText mt={3} fontSize={[16, 17]}>
               {description}
