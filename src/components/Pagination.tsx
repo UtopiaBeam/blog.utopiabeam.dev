@@ -52,7 +52,7 @@ export default ({ numPage, currentPage }: Props) => {
             </PageNum>
           </Link>
         ) : null}
-        {pageNums.map((num, i) => (
+        {pageNums.map(num => (
           <Link to={num > 1 ? `${pathPrefix}${num}` : '/'}>
             <PageNum mx={3} num={num} currentPage={currentPage}>
               {num}
