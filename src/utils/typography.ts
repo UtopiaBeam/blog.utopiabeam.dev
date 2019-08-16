@@ -2,7 +2,7 @@ import Typography from 'typography';
 
 const typography = new Typography({
   baseFontSize: '18px',
-  baseLineHeight: 1.4,
+  baseLineHeight: 1.5,
   headerFontFamily: ['Athiti', 'sans-serif'],
   bodyFontFamily: ['Pridi', 'sans-serif'],
   googleFonts: [
