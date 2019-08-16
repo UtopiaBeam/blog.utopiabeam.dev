@@ -44,7 +44,7 @@ export default ({ numPage, currentPage }: Props) => {
   return (
     <>
       <GlobalStyle />
-      <Flex justifyContent="center" m={3}>
+      <Flex justifyContent="center" mt={5} mb={4}>
         {head(pageNums) > 1 ? (
           <Link to="/">
             <PageNum num={0} currentPage={-1}>
