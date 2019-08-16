@@ -1,7 +1,7 @@
 ---
 title: Wow!
 description: Such doge!
-date: "2019-04-30"
+date: "2000-04-30"
 banner: ./banner.jpg
 featured: false
 ---
