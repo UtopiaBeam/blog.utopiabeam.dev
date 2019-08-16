@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, Text, Box, Heading } from 'rebass';
+import { Card, Text, Box, Heading, Link } from 'rebass';
 import Img, { FluidObject } from 'gatsby-image';
-import { Link } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 
 interface Props {
@@ -18,7 +17,7 @@ interface Props {
 
 const GlobalStyle = createGlobalStyle`
   a {
-    text-decoration: none
+    text-decoration: none;
   }
 `;
 
@@ -43,7 +42,7 @@ const BlogDate = styled(Text)`
 `;
 
 const BlogText = styled(Text)`
-  color: rgba(10, 10, 10, 0.8);
+  color: rgba(30, 30, 30, 0.7);
 `;
 
 export default ({ title, slug, description, date, banner }: Props) => {
@@ -53,7 +52,7 @@ export default ({ title, slug, description, date, banner }: Props) => {
   return (
     <>
       <GlobalStyle />
-      <Link to={slug}>
+      <Link href={slug}>
         <BlogCard m={3}>
           {cardBanner}
           <Box p={3}>
