@@ -3,6 +3,7 @@ import { FluidObject } from 'gatsby-image';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import { Flex, Box } from 'rebass';
+import { createGlobalStyle } from 'styled-components';
 
 interface Post {
   title: string;
@@ -24,15 +25,22 @@ interface Props {
   };
 }
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: rgb(250, 250, 250);
+  }
+`;
+
 export default (props: Props) => {
   const { numPage, currentPage, posts } = props.pageContext;
   const blogCards = posts.map((post: Post) => (
-    <Box width={[1, 1, 1/2]}>
-      <Card {...post} />{' '}
+    <Box width={[1, 1, 1 / 2]}>
+      <Card {...post} />
     </Box>
   ));
   return (
     <>
+      <GlobalStyle />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
