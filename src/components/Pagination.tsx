@@ -40,7 +40,6 @@ export default ({ numPage, currentPage }: Props) => {
   const endPage = Math.min(numPage, currentPage + 2);
   const pageCount = endPage - startPage + 1;
   const pageNums = Array.from({ length: pageCount }, (_, i) => startPage + i);
-  console.log(last(pageNums));
   return (
     <>
       <GlobalStyle />
