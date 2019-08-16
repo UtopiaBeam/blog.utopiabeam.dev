@@ -50,7 +50,6 @@ export default ({ title, slug, description, date, banner }: Props) => {
   const cardBanner = banner ? (
     <Banner fluid={banner.childImageSharp.fluid} />
   ) : null;
-  console.log(title, cardBanner);
   return (
     <>
       <GlobalStyle />
