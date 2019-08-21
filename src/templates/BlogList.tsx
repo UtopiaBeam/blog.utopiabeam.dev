@@ -4,6 +4,7 @@ import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import { Flex, Box } from 'rebass';
 import { createGlobalStyle } from 'styled-components';
+import Header from '../components/Header';
 
 interface Post {
   title: string;
@@ -41,6 +42,7 @@ export default (props: Props) => {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
