@@ -48,7 +48,7 @@ export default (props: Props) => {
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix={'/'} />
+      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='' />
     </>
   );
 };

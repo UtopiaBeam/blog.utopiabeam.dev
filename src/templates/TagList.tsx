@@ -45,7 +45,7 @@ export default (props: Props) => {
           <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='tags/' />
+      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='tags' />
     </>
   );
 };
