@@ -3,16 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { Flex, Link, Text } from 'rebass';
 
-interface Data {
-  allTagsJson: {
-    edges: {
-      node: {
-        key: string;
-        name: string;
-        description: string;
-      };
-    }[];
-  };
+interface Tab {
+  name: string;
+  href: string;
 }
 
 const NavLink = styled(Link)`
@@ -33,31 +26,20 @@ const NavText = styled(Text)`
 `;
 
 export default () => {
-  const data: Data = useStaticQuery(graphql`
+  const tabs: Tab[] = [
     {
-      allTagsJson {
-        edges {
-          node {
-            description
-            key
-            name
-          }
-        }
-      }
-    }
-  `);
-  const tags = data.allTagsJson.edges;
-  const navTags = tags.map(({ node }) => (
-    <NavLink href={`tags/${node.key}`} p={4} pb={2} fontSize={[14, 16]}>
-      <NavText>{node.name.toUpperCase()}</NavText>
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'Tags',
+      href: '/tags',
+    },
+  ];
+  const navTabs = tabs.map((tab: Tab) => (
+    <NavLink href={tab.href} p={4} pb={2} fontSize={[14, 16]}>
+      <NavText>{tab.name.toUpperCase()}</NavText>
     </NavLink>
   ));
-  return (
-    <Flex justifyContent="center">
-      <NavLink href="/" p={4} pb={2} fontSize={[14, 16]}>
-        <NavText>HOME</NavText>
-      </NavLink>
-      {navTags}
-    </Flex>
-  );
+  return <Flex justifyContent="center">{navTabs}</Flex>;
 };

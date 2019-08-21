@@ -7,7 +7,7 @@ interface Props {
   title: string;
   slug: string;
   description: string;
-  date: string;
+  date?: string;
   banner?: {
     childImageSharp: {
       fluid: FluidObject;
@@ -61,7 +61,7 @@ export default ({ title, slug, description, date, banner }: Props) => {
         <BlogCard m={3}>
           {cardBanner}
           <Box p={3}>
-            <BlogDate mb={2}>{date}</BlogDate>
+            {date ? <BlogDate mb={2}>{date}</BlogDate> : null}
             <BlogTitle as="h1">{title}</BlogTitle>
             <BlogText mt={3} fontSize={[16, 17]}>
               {description}

@@ -7,6 +7,7 @@ import { head, last } from 'lodash';
 interface Props {
   numPage: number;
   currentPage: number;
+  pathPrefix: string;
 }
 
 interface PageProps {
@@ -35,8 +36,7 @@ const PageNum = styled(Text)`
   }
 `;
 
-export default ({ numPage, currentPage }: Props) => {
-  const pathPrefix = 'page/';
+export default ({ numPage, currentPage, pathPrefix }: Props) => {
   const startPage = Math.max(1, currentPage - 2);
   const endPage = Math.min(numPage, currentPage + 2);
   const pageCount = endPage - startPage + 1;
@@ -46,14 +46,14 @@ export default ({ numPage, currentPage }: Props) => {
       <GlobalStyle />
       <Flex justifyContent="center" py={4}>
         {head(pageNums) > 1 ? (
-          <Link to="/">
+          <Link to={pathPrefix}>
             <PageNum num={0} currentPage={-1}>
               {'<<'}
             </PageNum>
           </Link>
         ) : null}
         {pageNums.map(num => (
-          <Link to={num > 1 ? `${pathPrefix}${num}` : '/'}>
+          <Link to={num > 1 ? `${pathPrefix}${num}` : pathPrefix}>
             <PageNum mx={3} num={num} currentPage={currentPage}>
               {num}
             </PageNum>
