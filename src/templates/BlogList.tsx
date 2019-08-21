@@ -36,7 +36,7 @@ export default (props: Props) => {
   const { numPage, currentPage, posts } = props.pageContext;
   const blogCards = posts.map((post: Post) => (
     <Box width={[1, 1, 1 / 2]}>
-      <Card {...post} />
+      <Card {...post} pathPrefix="" />
     </Box>
   ));
   return (
@@ -48,7 +48,7 @@ export default (props: Props) => {
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='' />
+      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix="" />
     </>
   );
 };

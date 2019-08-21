@@ -13,6 +13,7 @@ interface Props {
       fluid: FluidObject;
     };
   };
+  pathPrefix: string;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -50,14 +51,21 @@ const BlogText = styled(Text)`
   color: rgba(30, 30, 30, 0.7);
 `;
 
-export default ({ title, slug, description, date, banner }: Props) => {
+export default ({
+  title,
+  slug,
+  description,
+  date,
+  banner,
+  pathPrefix,
+}: Props) => {
   const cardBanner = banner ? (
     <Banner fluid={banner.childImageSharp.fluid} />
   ) : null;
   return (
     <>
       <GlobalStyle />
-      <Link href={slug}>
+      <Link href={pathPrefix ? `${pathPrefix}/${slug}` : slug}>
         <BlogCard m={3}>
           {cardBanner}
           <Box p={3}>
