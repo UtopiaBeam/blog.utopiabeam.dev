@@ -1,6 +1,7 @@
 ---
 title: Lost in SCB Open Banking Hackathon สไตล์ dev
 description: Review ทุกสิ่งอย่างในงาน SCB Open Banking Hackathon อาทิ บรรยากาศ โจทย์ การทำงาน การตัดสิน
+tags: Review
 date: "2019-06-24"
 banner: ./banner.jpg
 featured: false
