@@ -28,6 +28,7 @@ const PageNum = styled(Text)`
       return `color: rgba(10, 10, 10, 0.6);`;
     }
   }}
+  transition: color .1s ease-in-out;
 
   &:hover {
     color: rgba(255, 165, 0, 0.8);
@@ -40,11 +41,10 @@ export default ({ numPage, currentPage }: Props) => {
   const endPage = Math.min(numPage, currentPage + 2);
   const pageCount = endPage - startPage + 1;
   const pageNums = Array.from({ length: pageCount }, (_, i) => startPage + i);
-  console.log(last(pageNums));
   return (
     <>
       <GlobalStyle />
-      <Flex justifyContent="center" mt={5} mb={4}>
+      <Flex justifyContent="center" py={4}>
         {head(pageNums) > 1 ? (
           <Link to="/">
             <PageNum num={0} currentPage={-1}>

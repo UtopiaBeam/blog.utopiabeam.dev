@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'UtopiaBlog',
-    description: 'A blogger in the coconut shell',
+    description: 'A blogger in a coconut shell',
     author: 'Natchapol Srisang {UtopiaBeam}',
   },
   plugins: [
@@ -44,6 +44,14 @@ module.exports = {
       options: {
         name: `blogs`,
         path: `${__dirname}/data/blog`,
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `database`,
+        path: `${__dirname}/data/database`,
       },
     },
     `gatsby-plugin-typescript`,
