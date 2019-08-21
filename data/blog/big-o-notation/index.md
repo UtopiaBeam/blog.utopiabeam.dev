@@ -2,6 +2,7 @@
 title: Big-O Notation — โอไม่โอดูยังไง
 description: Big-O โอไม่เล็กที่ยิ่งใหญ่ (อย่าคิดเยอะ เดี๋ยวไม่โอ...)
 date: "2019-05-19"
+tags: Programming
 banner: ./banner.png
 featured: false
 ---
