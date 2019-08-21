@@ -9,10 +9,15 @@ const typography = new Typography({
     {
       name: 'Athiti',
       styles: ['600'],
-    }, {
+    },
+    {
       name: 'Pridi',
       styles: ['400'],
-    }
+    },
+    {
+      name: 'Catamaran',
+      styles: ['300', '400'],
+    },
   ],
 });
 
