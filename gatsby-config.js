@@ -46,6 +46,14 @@ module.exports = {
         path: `${__dirname}/data/blog`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `database`,
+        path: `${__dirname}/data/database`,
+      },
+    },
     `gatsby-plugin-typescript`,
   ],
 };

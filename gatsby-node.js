@@ -20,7 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      blogs: allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             fields {
@@ -50,10 +52,20 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allTagsJson {
+        edges {
+          node {
+            description
+            key
+            name
+          }
+        }
+      }
     }
   `);
 
-  const blogs = result.data.allMarkdownRemark.edges;
+  const blogs = result.data.blogs.edges;
+  const tags = result.data.tags.edges;
   const blogLists = chunk(blogs, POST_PER_PAGE);
 
   // Create blog listing pages
