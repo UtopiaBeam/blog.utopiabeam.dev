@@ -16,8 +16,8 @@ interface Props {
   };
 }
 
-export default ({ pageContext }: Props) => {
-  const { title, html, banner } = pageContext;
+export default (props: Props) => {
+  const { title, html, banner } = props.pageContext;
   return (
     <>
       {banner ? <img src={banner.childImageSharp.fluid.src} alt="" /> : null}
