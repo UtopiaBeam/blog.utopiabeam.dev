@@ -1,5 +1,6 @@
 {
-  "name": "Programming",
-  "key": "programming",
-  "description": "เรื่องราวเกีั่ยวกับ Programming ทั้งแนวเว็บ แนว Tech แนวแข่งขัน"
+  "title": "Programming",
+  "slug": "programming",
+  "description": "เรื่องราวเกีั่ยวกับ Programming ทั้งแนวเว็บ แนว Tech แนวแข่งขัน",
+  "banner": "./images/programming.jpg"
 }

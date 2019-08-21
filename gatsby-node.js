@@ -2,7 +2,7 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { chunk } = require('lodash');
 
-const POST_PER_PAGE = 8;
+const CARD_PER_PAGE = 8;
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -52,12 +52,26 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      tags: allTagsJson {
+      tags: allTagsJson(sort: { fields: title }) {
         edges {
           node {
+            title
+            slug
             description
-            key
-            name
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
+              }
+            }
           }
         }
       }
@@ -66,7 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogs = result.data.blogs.edges;
   const tags = result.data.tags.edges;
-  const blogLists = chunk(blogs, POST_PER_PAGE);
+  const blogLists = chunk(blogs, CARD_PER_PAGE);
+  const tagLists = chunk(tags, CARD_PER_PAGE);
 
   // Create blog listing pages
   blogLists.forEach((list, i) => {
@@ -96,4 +111,26 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  // Create tag listing pages
+  tagLists.forEach((list, i) => {
+    createPage({
+      path: i === 0 ? 'tags' : `tags/page/${i + 1}`,
+      component: path.resolve('src/templates/TagList.tsx'),
+      context: {
+        numPage: tagLists.length,
+        currentPage: i + 1,
+        tags: list.map(({ node }) => node),
+      },
+    });
+  });
+
+  // Create each tag page
+  // tags.forEach(({ node }) => {
+  //   createPage({
+  //     path: `tags/${node.key}`,
+  //     component: path.resolve('src/templates/Tag.tsx'),
+  //     context: node,
+  //   });
+  // });
 };

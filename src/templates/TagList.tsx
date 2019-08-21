@@ -1,16 +1,14 @@
 import React from 'react';
 import { FluidObject } from 'gatsby-image';
+import { createGlobalStyle } from 'styled-components';
+import { Flex, Box } from 'rebass';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
-import { Flex, Box } from 'rebass';
-import { createGlobalStyle } from 'styled-components';
-import Header from '../components/Header';
 
-interface Post {
+interface Tag {
   title: string;
   slug: string;
   description: string;
-  date: string;
   banner: {
     childImageSharp: {
       fluid: FluidObject;
@@ -22,7 +20,7 @@ interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
-    posts: Post[];
+    tags: Tag[];
   };
 }
 
@@ -33,22 +31,21 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default (props: Props) => {
-  const { numPage, currentPage, posts } = props.pageContext;
-  const blogCards = posts.map((post: Post) => (
+  const { numPage, currentPage, tags } = props.pageContext;
+  const tagCards = tags.map((tag: Tag) => (
     <Box width={[1, 1, 1 / 2]}>
-      <Card {...post} />
+      <Card {...tag} />
     </Box>
   ));
   return (
     <>
       <GlobalStyle />
-      <Header />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
-          <Flex flexWrap="wrap">{blogCards}</Flex>
+          <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix={'/'} />
+      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='tags/' />
     </>
   );
 };
