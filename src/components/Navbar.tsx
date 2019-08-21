@@ -16,7 +16,7 @@ const NavLink = styled(Link)`
 
 const NavText = styled(Text)`
   font-family: Catamaran, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   color: rgb(40, 40, 40);
   transition: color 0.1s ease-in-out;
 
