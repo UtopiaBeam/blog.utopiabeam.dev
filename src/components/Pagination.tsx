@@ -24,15 +24,15 @@ const GlobalStyle = createGlobalStyle`
 const PageNum = styled(Text)`
   ${({ num, currentPage }: PageProps) => {
     if (num === currentPage) {
-      return `color: rgba(44, 120, 212, 0.9);`;
+      return `color: rgb(44, 120, 212);`;
     } else {
-      return `color: rgba(10, 10, 10, 0.6);`;
+      return `color: rgba(10, 10, 10, 0.2);`;
     }
   }}
   transition: color .1s ease-in-out;
 
   &:hover {
-    color: rgba(255, 165, 0, 0.8);
+    color: rgb(255, 165, 0);
   }
 `;
 
@@ -53,14 +53,14 @@ export default ({ numPage, currentPage, pathPrefix }: Props) => {
           </Link>
         ) : null}
         {pageNums.map(num => (
-          <Link to={num > 1 ? `${pathPrefix}${num}` : pathPrefix}>
+          <Link to={num > 1 ? `${pathPrefix}/page/${num}` : pathPrefix}>
             <PageNum mx={3} num={num} currentPage={currentPage}>
               {num}
             </PageNum>
           </Link>
         ))}
         {last(pageNums) < numPage ? (
-          <Link to={`${pathPrefix}${numPage}`}>
+          <Link to={`${pathPrefix}/page/${numPage}`}>
             <PageNum num={0} currentPage={-1}>
               {'>>'}
             </PageNum>
