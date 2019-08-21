@@ -35,6 +35,10 @@ export default () => {
       name: 'Tags',
       href: '/tags',
     },
+    {
+      name: 'Facebook',
+      href: 'https://www.facebook.com/natchapolsrisang',
+    },
   ];
   const navTabs = tabs.map((tab: Tab) => (
     <NavLink href={tab.href} p={4} pb={2} fontSize={[14, 16]}>
