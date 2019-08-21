@@ -48,13 +48,13 @@ export default () => {
   `);
   const tags = data.allTagsJson.edges;
   const navTags = tags.map(({ node }) => (
-    <NavLink href={`tags/${node.key}`} p={4} pb={0} fontSize={[14, 16]}>
+    <NavLink href={`tags/${node.key}`} p={4} pb={2} fontSize={[14, 16]}>
       <NavText>{node.name.toUpperCase()}</NavText>
     </NavLink>
   ));
   return (
     <Flex justifyContent="center">
-      <NavLink href="/" p={4} pb={0} fontSize={[14, 16]}>
+      <NavLink href="/" p={4} pb={2} fontSize={[14, 16]}>
         <NavText>HOME</NavText>
       </NavLink>
       {navTags}
