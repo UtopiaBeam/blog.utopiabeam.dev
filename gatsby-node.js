@@ -125,12 +125,71 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create each tag page
-  // tags.forEach(({ node }) => {
-  //   createPage({
-  //     path: `tags/${node.key}`,
-  //     component: path.resolve('src/templates/Tag.tsx'),
-  //     context: node,
-  //   });
-  // });
+  // Create blog listing for each tag
+  const tagPostLists = await Promise.all(
+    tags.map(async ({ node }) => {
+      console.log(node);
+      const result = await graphql(`
+        {
+          posts: allMarkdownRemark(
+            filter: { frontmatter: { tags: { regex: "/${node.title}/" } } }
+            sort: { fields: frontmatter___date, order: DESC }
+          ) {
+            edges {
+              node {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  date(formatString: "MMM DD, YYYY")
+                  description
+                  tags
+                  featured
+                  banner {
+                    childImageSharp {
+                      fluid {
+                        base64
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcSetWebp
+                        srcWebp
+                        sizes
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `);
+      const posts = result.data.posts.edges;
+      return {
+        tag: node,
+        posts,
+      };
+    })
+  );
+
+  tagPostLists.forEach(({ tag, posts }) => {
+    const postLists = chunk(posts, CARD_PER_PAGE);
+    postLists.forEach((list, i) => {
+      createPage({
+        path: `tag/${tag.slug}` + (i === 0 ? '/' : `/page/${i + 1}`),
+        component: path.resolve('src/templates/Tag.tsx'),
+        context: {
+          tag,
+          numPage: postLists.length,
+          currentPage: i + 1,
+          posts: list.map(({ node }) => {
+            const { frontmatter, fields } = node;
+            return { ...frontmatter, slug: fields.slug };
+          }),
+        },
+      });
+    });
+  });
 };
