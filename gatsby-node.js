@@ -128,7 +128,6 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog listing for each tag
   const tagPostLists = await Promise.all(
     tags.map(async ({ node }) => {
-      console.log(node);
       const result = await graphql(`
         {
           posts: allMarkdownRemark(
