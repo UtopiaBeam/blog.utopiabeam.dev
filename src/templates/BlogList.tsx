@@ -6,11 +6,10 @@ import { Flex, Box } from 'rebass';
 import { createGlobalStyle } from 'styled-components';
 import Header from '../components/Header';
 
-interface Post {
+interface Tag {
   title: string;
   slug: string;
   description: string;
-  date: string;
   banner: {
     childImageSharp: {
       fluid: FluidObject;
@@ -18,11 +17,16 @@ interface Post {
   };
 }
 
+interface Post extends Tag {
+  date: string;
+}
+
 interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
     posts: Post[];
+    tag: Tag;
   };
 }
 
@@ -33,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default (props: Props) => {
-  const { numPage, currentPage, posts } = props.pageContext;
+  const { numPage, currentPage, posts, tag } = props.pageContext;
   const blogCards = posts.map((post: Post) => (
     <Box width={[1, 1, 1 / 2]}>
       <Card {...post} pathPrefix="" />
@@ -42,7 +46,7 @@ export default (props: Props) => {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header {...tag} />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
