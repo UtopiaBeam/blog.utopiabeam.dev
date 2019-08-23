@@ -8,7 +8,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Athiti',
-      styles: ['600'],
+      styles: ['600', ' 700'],
     },
     {
       name: 'Pridi',
@@ -17,6 +17,10 @@ const typography = new Typography({
     {
       name: 'Catamaran',
       styles: ['300', '500'],
+    },
+    {
+      name: 'Kanit',
+      styles: ['300'],
     },
   ],
 });
