@@ -32,7 +32,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Title = ({ title }): JSX.Element => (
-  <Heading as="h1"
+  <Heading
+    as="h1"
     fontFamily="Athiti, sans-serif"
     fontWeight={700}
     fontSize={[40, 44, 48]}
@@ -62,7 +63,7 @@ export default (props: Props) => {
       <GlobalStyle />
       {banner ? <Img fluid={banner.childImageSharp.fluid} alt="" /> : null}
       <Flex justifyContent="center">
-        <Box width={[4 / 5, 3 / 4, 1/2]} py={4}>
+        <Box width={[4 / 5, 3 / 4, 1 / 2]} py={4}>
           <Title title={title} />
           <Date date={date} />
           <div dangerouslySetInnerHTML={{ __html: html }} />
