@@ -40,7 +40,7 @@ export default () => {
     },
   ];
   const navTabs = tabs.map((tab: Tab) => (
-    <NavLink href={tab.href} p={4} pb={2} fontSize={[14, 16]}>
+    <NavLink href={tab.href} px={[3, 4]} pt={4} pb={2} fontSize={[14, 16]}>
       <NavText>{tab.name.toUpperCase()}</NavText>
     </NavLink>
   ));
