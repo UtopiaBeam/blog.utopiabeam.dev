@@ -48,7 +48,7 @@ const BlogDate = styled(Text)`
 `;
 
 const BlogText = styled(Text)`
-  color: rgba(30, 30, 30, 0.7);
+  color: rgba(20, 20, 20, 0.8);
 `;
 
 export default ({
