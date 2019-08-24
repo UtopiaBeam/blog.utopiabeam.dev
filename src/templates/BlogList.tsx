@@ -48,7 +48,7 @@ export default (props: Props) => {
       <GlobalStyle />
       <Header {...tag} />
       <Flex justifyContent="center">
-        <Box width={[1, 2 / 3]}>
+        <Box width={[5 / 6, 2 / 3]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
