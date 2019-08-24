@@ -2,21 +2,20 @@ import Typography from 'typography';
 
 const typography = new Typography({
   baseFontSize: '18px',
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.7,
   headerFontFamily: ['Athiti', 'sans-serif'],
-  bodyFontFamily: ['Pridi', 'sans-serif'],
   googleFonts: [
     {
       name: 'Athiti',
-      styles: ['600'],
-    },
-    {
-      name: 'Pridi',
-      styles: ['400'],
+      styles: ['600', ' 700'],
     },
     {
       name: 'Catamaran',
       styles: ['300', '500'],
+    },
+    {
+      name: 'Kanit',
+      styles: ['300'],
     },
   ],
 });

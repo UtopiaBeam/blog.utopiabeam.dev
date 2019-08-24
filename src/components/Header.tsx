@@ -1,15 +1,10 @@
 import React from 'react';
 import Navbar from './Navbar';
-import { Flex, Heading } from 'rebass';
+import { Flex, Heading, Box } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
 import logo from '../../static/logo.png';
-
-const Banner = styled(Flex)`
-  background: url(../../bg.jpg) center center no-repeat;
-  background-size: cover;
-  width: 100%;
-`;
+import { FluidObject } from 'gatsby-image';
+import styled from 'styled-components';
 
 interface Site {
   siteMetadata: {
@@ -17,11 +12,55 @@ interface Site {
   };
 }
 
+interface Props {
+  banner?: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+  title?: string;
+  description?: string;
+}
+
 interface Data {
   site: Site;
 }
 
-export default () => {
+const Logo = ({ title }): JSX.Element => {
+  return title ? (
+    <Heading
+      textAlign="center"
+      fontFamily="Athiti, sans-serif"
+      fontWeight={700}
+      fontSize={[50, 60, 72]}
+      color="#ffffff"
+      pb={4}
+    >
+      {title}
+    </Heading>
+  ) : (
+    <img src={logo} alt="logo" width="550px" />
+  );
+};
+
+const Description = ({ desc, fontFamily, fontWeight }): JSX.Element => {
+  return (
+    <Heading
+      textAlign="center"
+      fontFamily={`${fontFamily}, sans-serif`}
+      fontWeight={fontWeight}
+      fontSize={[20, 24, 28]}
+      letterSpacing={2}
+      color="rgba(250, 250, 250, 0.8)"
+      mx={[3, 4, 5]}
+    >
+      {desc}
+    </Heading>
+  );
+};
+
+export default (props: Props) => {
+  const { banner, title, description } = props;
   const { site }: Data = useStaticQuery(graphql`
     {
       site {
@@ -33,24 +72,26 @@ export default () => {
   `);
   return (
     <>
-      <Banner
+      <Flex
         justifyContent="center"
         alignItems="center"
         height={400}
         flexDirection="column"
+        css={{
+          background: `url(${
+            banner ? banner.childImageSharp.fluid.src : '../../bg.jpg'
+          }) center center no-repeat`,
+          backgroundSize: 'cover',
+        }}
       >
-        <img src={logo} alt="logo" width='550px' />
-        <Heading
-          textAlign="center"
-          fontFamily="Catamaran, sans-serif"
-          fontWeight={300}
-          fontSize={[20, 25, 30]}
-          letterSpacing={2}
-          color="rgba(250, 250, 250, 0.8)"
-        >
-          {site.siteMetadata.description}
-        </Heading>
-      </Banner>
+        <Logo title={title} />
+        <Description
+          desc={description ? description : site.siteMetadata.description}
+          fontFamily={description ? 'Kanit' : 'Catamaran'}
+          fontWeight={description ? 300 : 500}
+        />
+        {/* <Overlay /> */}
+      </Flex>
       <Navbar />
     </>
   );

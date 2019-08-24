@@ -128,7 +128,6 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog listing for each tag
   const tagPostLists = await Promise.all(
     tags.map(async ({ node }) => {
-      console.log(node);
       const result = await graphql(`
         {
           posts: allMarkdownRemark(
@@ -179,7 +178,7 @@ exports.createPages = async ({ graphql, actions }) => {
     postLists.forEach((list, i) => {
       createPage({
         path: `tag/${tag.slug}` + (i === 0 ? '/' : `/page/${i + 1}`),
-        component: path.resolve('src/templates/Tag.tsx'),
+        component: path.resolve('src/templates/BlogList.tsx'),
         context: {
           tag,
           numPage: postLists.length,
