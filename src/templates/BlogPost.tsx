@@ -19,15 +19,38 @@ interface Props {
 
 const GlobalStyle = createGlobalStyle`
   html {
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(250, 250, 250);
   }
   a {
     text-decoration: none;
     color: rgb(44, 120, 212);
   }
   p {
-    font-size: 20px;
     color: rgb(20, 20, 20);
+  }
+  pre[class*="language-"] {
+    border-radius: 5px;
+    
+    &>code {
+      font-size: 17px;
+    }
+  }
+  :not(pre)>code {
+    font-size: 18px;
+  }
+  .katex-html {
+    overflow-x: scroll;
+  }
+  blockquote {
+    font-size: 1.2em;
+    padding: 0 1.5em;
+    border-left: 0.3em solid rgba(44, 120, 212, 0.6);
+  }
+  table {
+    table-layout: fixed;
+    &>tbody {
+      font-size: 0.85em;
+    }
   }
 `;
 
