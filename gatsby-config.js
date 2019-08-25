@@ -27,7 +27,13 @@ module.exports = {
               classPrefix: 'language-',
               inlineCodeMarker: null,
               showLineNumbers: false,
-              noInlineHighlight: false,
+              noInlineHighlight: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
             },
           },
         ],
