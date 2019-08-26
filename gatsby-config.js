@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'UtopiaBlog',
     description: 'A blogger in a coconut shell',
-    author: 'Natchapol Srisang {UtopiaBeam}',
+    author: 'Natchapol Srisang',
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -61,5 +61,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`
   ],
 };
