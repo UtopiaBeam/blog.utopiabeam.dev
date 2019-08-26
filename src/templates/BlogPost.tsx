@@ -2,19 +2,10 @@ import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import { Flex, Box, Heading } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
+import { Post } from '../interfaces';
 
 interface Props {
-  pageContext: {
-    title: string;
-    description: string;
-    date: Date;
-    banner: {
-      childImageSharp: {
-        fluid: FluidObject;
-      };
-    };
-    html: string;
-  };
+  pageContext: Post & { html: string };
 }
 
 const GlobalStyle = createGlobalStyle`

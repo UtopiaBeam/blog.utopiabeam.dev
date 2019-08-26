@@ -1,10 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
-import { Flex, Heading, Box } from 'rebass';
+import { Flex, Heading } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
 import logo from '../../static/logo.png';
 import { FluidObject } from 'gatsby-image';
-import styled from 'styled-components';
 
 interface Site {
   siteMetadata: {

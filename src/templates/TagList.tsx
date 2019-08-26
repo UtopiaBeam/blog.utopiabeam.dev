@@ -1,21 +1,10 @@
 import React from 'react';
-import { FluidObject } from 'gatsby-image';
 import { createGlobalStyle } from 'styled-components';
 import { Flex, Box } from 'rebass';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import Header from '../components/Header';
-
-interface Tag {
-  title: string;
-  slug: string;
-  description: string;
-  banner: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-}
+import { Tag } from '../interfaces';
 
 interface Props {
   pageContext: {
