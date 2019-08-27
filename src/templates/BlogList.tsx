@@ -5,6 +5,7 @@ import { Flex, Box } from 'rebass';
 import { createGlobalStyle } from 'styled-components';
 import Header from '../components/Header';
 import { Post, Tag, PageType } from '../types';
+import SEO from '../components/SEO';
 
 interface Props {
   pageContext: {
@@ -30,6 +31,7 @@ export default (props: Props) => {
   ));
   return (
     <>
+      <SEO title={tag ? tag.title : undefined} type={PageType.List} />
       <GlobalStyle />
       <Header {...tag} />
       <Flex justifyContent="center">

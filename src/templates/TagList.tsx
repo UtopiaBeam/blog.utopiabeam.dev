@@ -5,6 +5,7 @@ import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import Header from '../components/Header';
 import { Tag, PageType } from '../types';
+import SEO from '../components/SEO';
 
 interface Props {
   pageContext: {
@@ -29,6 +30,7 @@ export default (props: Props) => {
   ));
   return (
     <>
+      <SEO type={PageType.List} title="Tags" />
       <GlobalStyle />
       <Header />
       <Flex justifyContent="center">
