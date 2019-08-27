@@ -1,7 +1,7 @@
 import Typography from 'typography';
 
 const typography = new Typography({
-  baseFontSize: '18px',
+  baseFontSize: '20px',
   baseLineHeight: 1.7,
   headerFontFamily: ['Athiti', 'sans-serif'],
   googleFonts: [
@@ -15,7 +15,7 @@ const typography = new Typography({
     },
     {
       name: 'Kanit',
-      styles: ['300'],
+      styles: ['300', '400'],
     },
   ],
 });

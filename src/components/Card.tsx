@@ -44,6 +44,7 @@ const BlogTitle = styled(Heading)`
 
 const BlogDate = styled(Text)`
   font-size: 0.85em;
+  font-family: Kanit, sans-serif;
   color: rgba(10, 10, 10, 0.5);
 `;
 

@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, Link, Text } from 'rebass';
-
-interface Tab {
-  name: string;
-  href: string;
-}
+import { Tab } from '../types';
 
 const NavLink = styled(Link)`
   a {
