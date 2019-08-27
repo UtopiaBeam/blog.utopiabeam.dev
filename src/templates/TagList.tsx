@@ -4,7 +4,7 @@ import { Flex, Box } from 'rebass';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import Header from '../components/Header';
-import { Tag } from '../interfaces';
+import { Tag, PageType } from '../types';
 
 interface Props {
   pageContext: {
@@ -36,7 +36,11 @@ export default (props: Props) => {
           <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='tags' />
+      <Pagination
+        numPage={numPage}
+        currentPage={currentPage}
+        pathPrefix="tags"
+      />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, Link, Text } from 'rebass';
-import { Tab } from '../interfaces';
+import { Tab } from '../types';
 
 const NavLink = styled(Link)`
   a {
