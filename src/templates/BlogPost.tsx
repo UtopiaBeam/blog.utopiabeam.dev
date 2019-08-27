@@ -2,7 +2,7 @@ import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import { Flex, Box, Heading } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Post } from '../interfaces';
+import { Post, PageType } from '../types';
 
 interface Props {
   pageContext: Post & { html: string };

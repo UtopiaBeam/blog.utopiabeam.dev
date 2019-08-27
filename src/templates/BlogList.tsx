@@ -4,7 +4,7 @@ import Card from '../components/Card';
 import { Flex, Box } from 'rebass';
 import { createGlobalStyle } from 'styled-components';
 import Header from '../components/Header';
-import { Post, Tag } from '../interfaces';
+import { Post, Tag, PageType } from '../types';
 
 interface Props {
   pageContext: {

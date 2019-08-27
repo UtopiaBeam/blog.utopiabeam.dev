@@ -19,3 +19,16 @@ export interface Tab {
   name: string;
   href: string;
 }
+
+export interface SiteMetadata {
+  title: string;
+  description: string;
+  author: string;
+  siteUrl: string;
+}
+
+export enum PageType {
+  List = 'List',
+  Post = 'Post',
+  Tag = 'Tag',
+}
