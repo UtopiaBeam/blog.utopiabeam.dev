@@ -26,22 +26,20 @@ export default (props: Props) => {
     }
   `);
   const siteMetadata = data.site.siteMetadata;
-  const {
-    title,
-    description = siteMetadata.description,
-    banner,
-    slug,
-    date,
-    type,
-  } = props;
+  const { title, description = siteMetadata.description, banner, slug, date, type } = props;
+  const pageTitle = title ? `${title} | ${siteMetadata.title}` : siteMetadata.title;
   const meta = [
     {
       name: 'name',
-      content: title ? `${title} | ${siteMetadata.title}` : siteMetadata.title,
+      content: pageTitle,
     },
     {
       name: 'description',
       content: description,
+    },
+    {
+      name: 'robots',
+      content: 'index, follow',
     },
     {
       name: 'author',
@@ -50,6 +48,22 @@ export default (props: Props) => {
     {
       name: 'image',
       content: `${siteMetadata.siteUrl}${banner}`,
+    },
+    {
+      name: 'theme-color',
+      content: '#ffa500',
+    },
+    {
+      name: 'msapplication-navbutton-color',
+      content: '#ffa500',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: '#ffa500',
     },
     {
       property: 'og:url',
@@ -69,7 +83,7 @@ export default (props: Props) => {
     },
     {
       property: 'og:title',
-      content: title ? `${title} | ${siteMetadata.title}` : siteMetadata.title,
+      content: pageTitle,
     },
     {
       name: 'og:description',
@@ -83,12 +97,13 @@ export default (props: Props) => {
       property: 'og:image:secure_url',
       content: `${siteMetadata.siteUrl}${banner}`,
     },
+    {
+      property: 'og:image:alt',
+      content: 'banner',
+    },
   ];
   return (
-    <Helmet
-      title={title ? `${title} | ${siteMetadata.title}` : siteMetadata.title}
-      meta={meta}
-    >
+    <Helmet title={pageTitle} meta={meta}>
       <script type="application/application/ld+json">
         {type === PageType.Post
           ? `
@@ -103,8 +118,8 @@ export default (props: Props) => {
               "@type" : "Person",
               "name" : "${siteMetadata.author}"
             },
-            "image" : "${banner}",
-            "headline" : ${title},
+            "image" : "${siteMetadata.siteUrl}${banner}",
+            "headline" : "${pageTitle}",
             "datePublished" : "${date}",
             "description" : "${description}"
           }`
