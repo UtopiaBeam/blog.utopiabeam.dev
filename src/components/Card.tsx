@@ -52,17 +52,8 @@ const BlogText = styled(Text)`
   color: rgba(20, 20, 20, 0.8);
 `;
 
-export default ({
-  title,
-  slug,
-  description,
-  date,
-  banner,
-  pathPrefix,
-}: Props) => {
-  const cardBanner = banner ? (
-    <Banner fluid={banner.childImageSharp.fluid} />
-  ) : null;
+export default ({ title, slug, description, date, banner, pathPrefix }: Props) => {
+  const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
   return (
     <>
       <GlobalStyle />
