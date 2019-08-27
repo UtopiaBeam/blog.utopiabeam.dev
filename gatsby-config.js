@@ -7,7 +7,7 @@ module.exports = {
       process.env.NODE_ENV === 'production'
         ? 'https://blog.utopiabeam.dev'
         : process.env.NODE_ENV === 'staging'
-        ? 'https://staging.blog.utopiabeam.dev'
+        ? 'https://staging-blog.utopiabeam.dev'
         : 'https://localhost:8000',
   },
   plugins: [
