@@ -30,6 +30,8 @@ const PageNum = styled(Text)`
     }
   }}
   transition: color .1s ease-in-out;
+  font-family: Kanit, sans-serif;
+  font-weight: 400;
 
   &:hover {
     color: rgb(255, 165, 0);
@@ -40,26 +42,26 @@ export default ({ numPage, currentPage, pathPrefix }: Props) => {
   const startPage = Math.max(1, currentPage - 2);
   const endPage = Math.min(numPage, currentPage + 2);
   const pageCount = endPage - startPage + 1;
-  const pageNums = Array.from({ length: pageCount }, (_, i) => startPage + i);
+  const pages = Array.from({ length: pageCount }, (_, i) => startPage + i);
   return (
     <>
       <GlobalStyle />
       <Flex justifyContent="center" py={4}>
-        {head(pageNums) > 1 ? (
+        {head(pages) > 1 ? (
           <Link to={pathPrefix}>
             <PageNum num={0} currentPage={-1}>
               {'<<'}
             </PageNum>
           </Link>
         ) : null}
-        {pageNums.map(num => (
+        {pages.map(num => (
           <Link to={num > 1 ? `${pathPrefix}/page/${num}` : pathPrefix}>
             <PageNum mx={3} num={num} currentPage={currentPage}>
               {num}
             </PageNum>
           </Link>
         ))}
-        {last(pageNums) < numPage ? (
+        {last(pages) < numPage ? (
           <Link to={`${pathPrefix}/page/${numPage}`}>
             <PageNum num={0} currentPage={-1}>
               {'>>'}
