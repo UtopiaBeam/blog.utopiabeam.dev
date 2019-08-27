@@ -126,7 +126,7 @@ $$
 
 | Big-O | name | examples |
 |-------|------|-------|
-|$O(1)$|constant|Arithmic operations|
+|$O(1)$|constant|Arithmetic operations|
 |$O(\log{n})$|logarithmic|Binary search|
 |$O(\sqrt{n})$|square root|Primality test|
 |$O(n)$|linear|Finding min/max, Maximum contiguous sum|
