@@ -3,6 +3,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import { Flex, Box, Heading } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Post, PageType } from '../types';
+import SEO from '../components/SEO';
 
 interface Props {
   pageContext: Post & { html: string };
@@ -71,9 +72,15 @@ const Date = ({ date }): JSX.Element => (
 );
 
 export default (props: Props) => {
-  const { title, date, html, banner } = props.pageContext;
+  const { title, description, date, html, banner } = props.pageContext;
   return (
     <>
+      <SEO
+        type={PageType.Post}
+        title={title}
+        description={description}
+        date={date}
+      />
       <GlobalStyle />
       {banner ? <Img fluid={banner.childImageSharp.fluid} alt="" /> : null}
       <Flex justifyContent="center">

@@ -3,6 +3,10 @@ module.exports = {
     title: 'UtopiaBlog',
     description: 'A blogger in a coconut shell',
     author: 'Natchapol Srisang',
+    siteUrl:
+      process.env.NODE_ENV === 'production'
+        ? 'https://blog.utopiabeam.dev'
+        : 'https://staging.blog.utopiabeam.dev',
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -62,6 +66,6 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-netlify-cache`
+    `gatsby-plugin-netlify-cache`,
   ],
 };
