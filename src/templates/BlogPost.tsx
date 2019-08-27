@@ -75,12 +75,7 @@ export default (props: Props) => {
   const { title, description, date, html, banner } = props.pageContext;
   return (
     <>
-      <SEO
-        type={PageType.Post}
-        title={title}
-        description={description}
-        date={date}
-      />
+      <SEO type={PageType.Post} title={title} description={description} date={date} />
       <GlobalStyle />
       {banner ? <Img fluid={banner.childImageSharp.fluid} alt="" /> : null}
       <Flex justifyContent="center">
