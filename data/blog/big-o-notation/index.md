@@ -36,12 +36,14 @@ featured: false
 
 คำตอบก็คือ**การนับจำนวนครั้งในการทำงานออกมาเป็นฟังก์ชัน**ไงล่ะ
 
-ลองดูตัวอย่างโค้ดข้างล่าง (เพื่อความง่ายจะขอใช้ `forEach`)
+ลองดูตัวอย่างโค้ดข้างล่าง (ใช้ภาษา `cpp`)
 
-```ts
-function findSum(arr: Number[]) {
-  let sum = 0;
-  arr.forEach(num => { sum += num });
+```cpp
+int findSum(int arr[], int n) {
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += arr[i];
+  }
   return sum;
 }
 ```
