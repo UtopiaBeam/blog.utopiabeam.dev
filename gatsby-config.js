@@ -42,6 +42,8 @@ module.exports = {
               strict: `ignore`,
             },
           },
+          `gatsby-remark-embed-video`,
+          `gatsby-remark-responsive-iframe`,
         ],
       },
     },
