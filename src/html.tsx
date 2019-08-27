@@ -35,8 +35,8 @@ export default (props: Props) => {
               : 'https://localhost:8000'
           }
         />
-        <link rel="shortcut icon" href="./favicon.ico" />
-        <link rel="apple-touch-icon-precomposed" href="./favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon-precomposed" href="/favicon.ico" />
         {headComponents}
       </head>
       <body {...bodyAttributes}>
