@@ -1,21 +1,11 @@
 import React from 'react';
-import { FluidObject } from 'gatsby-image';
 import { createGlobalStyle } from 'styled-components';
 import { Flex, Box } from 'rebass';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import Header from '../components/Header';
-
-interface Tag {
-  title: string;
-  slug: string;
-  description: string;
-  banner: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-}
+import { Tag, PageType } from '../types';
+import SEO from '../components/SEO';
 
 interface Props {
   pageContext: {
@@ -40,6 +30,7 @@ export default (props: Props) => {
   ));
   return (
     <>
+      <SEO type={PageType.List} title="Tags" />
       <GlobalStyle />
       <Header />
       <Flex justifyContent="center">
@@ -47,7 +38,11 @@ export default (props: Props) => {
           <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
-      <Pagination numPage={numPage} currentPage={currentPage} pathPrefix='tags' />
+      <Pagination
+        numPage={numPage}
+        currentPage={currentPage}
+        pathPrefix="tags"
+      />
     </>
   );
 };
