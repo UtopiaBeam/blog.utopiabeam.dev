@@ -38,12 +38,32 @@ export default (props: Props) => {
       content: description,
     },
     {
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
       name: 'author',
       content: siteMetadata.author,
     },
     {
       name: 'image',
       content: `${siteMetadata.siteUrl}${banner}`,
+    },
+    {
+      name: 'theme-color',
+      content: '#ffa500',
+    },
+    {
+      name: 'msapplication-navbutton-color',
+      content: '#ffa500',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: '#ffa500',
     },
     {
       property: 'og:url',
