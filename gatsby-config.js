@@ -68,6 +68,21 @@ module.exports = {
         path: `${__dirname}/data/database`,
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        excludes: [
+          '/page/*',
+          '/tags',
+          '/tags/*',
+          '/tag/review',
+          '/tag/programming',
+          '/tag/review/page/*',
+          '/tag/review/page/*',
+        ],
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-netlify-cache`,
