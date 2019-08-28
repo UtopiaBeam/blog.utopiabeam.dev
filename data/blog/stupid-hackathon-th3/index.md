@@ -1,5 +1,5 @@
 ---
-title: นั่งโง่ ๆ กับงาน Stupid Hackathon Thailand #3
+title: 'นั่งโง่ ๆ กับงาน Stupid Hackathon Thailand #3'
 description: 'Review งาน Stupid Hackathon Thailand #3 อย่างถึงพริกถึงขิง ว่าแต่งานถึงไหนแล้วววว!!!'
 date: '2019-04-21'
 tags: Review
