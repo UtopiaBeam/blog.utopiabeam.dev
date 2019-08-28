@@ -87,7 +87,7 @@ export default (props: Props) => {
         <Description
           desc={description ? description : site.siteMetadata.description}
           fontFamily={description ? 'Kanit' : 'Catamaran'}
-          fontWeight={description ? 300 : 500}
+          fontWeight={description ? 300 : 400}
         />
         {/* <Overlay /> */}
       </Flex>
