@@ -33,7 +33,7 @@ const PageNum = styled(Text)`
   font-family: Kanit, sans-serif;
   font-weight: 400;
 
-  &:hover {
+  :hover {
     color: rgb(255, 165, 0);
   }
 `;

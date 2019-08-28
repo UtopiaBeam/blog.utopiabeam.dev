@@ -9,6 +9,8 @@ module.exports = {
         : process.env.NODE_ENV === 'staging'
         ? 'https://staging-blog.utopiabeam.dev'
         : 'https://localhost:8000',
+    fbUrl: 'https://www.facebook.com/natchapolsrisang',
+    githubUrl: 'https://github.com/UtopiaBeam',
   },
   plugins: [
     `gatsby-transformer-sharp`,
