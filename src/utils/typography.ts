@@ -15,7 +15,7 @@ const typography = new Typography({
     },
     {
       name: 'Kanit',
-      styles: ['300', '400'],
+      styles: ['300', '400', '600'],
     },
   ],
 });
