@@ -20,9 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      blogs: allMarkdownRemark(
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
+      blogs: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             fields {
@@ -48,7 +46,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
             }
-            html
           }
         }
       }
@@ -100,14 +97,15 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create blog posts
-  blogs.forEach(({ node }) => {
-    const { frontmatter, html, fields } = node;
+  blogs.forEach(({ node }, i) => {
+    const { fields } = node;
     createPage({
       path: fields.slug,
       component: path.resolve('src/templates/BlogPost.tsx'),
       context: {
-        ...frontmatter,
-        html,
+        slug: fields.slug,
+        previous: i > 0 ? blogs[i - 1].node : null,
+        next: i < blogs.length - 1 ? blogs[i + 1].node : null,
       },
     });
   });
