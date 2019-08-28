@@ -15,6 +15,24 @@ export interface Post extends Tag {
   date: string;
 }
 
+export interface PostNode {
+  fields: {
+    slug: string;
+  };
+  frontmatter: {
+    title: string;
+    description: string;
+    featured: boolean;
+    date: string;
+    banner: {
+      childImageSharp: {
+        fluid: FluidObject;
+      };
+    };
+  };
+  html: string;
+}
+
 export interface Tab {
   name: string;
   href: string;
@@ -25,6 +43,8 @@ export interface SiteMetadata {
   description: string;
   author: string;
   siteUrl: string;
+  fbUrl: string;
+  githubUrl: string;
 }
 
 export enum PageType {

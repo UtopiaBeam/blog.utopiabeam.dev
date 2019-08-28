@@ -1,12 +1,21 @@
 import React from 'react';
 import Img, { FluidObject } from 'gatsby-image';
-import { Flex, Box, Heading } from 'rebass';
+import { Flex, Box, Heading, Text, Link } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Post, PageType } from '../types';
+import { PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
+import { graphql } from 'gatsby';
+import Card from '../components/Card';
 
 interface Props {
-  pageContext: Post & { html: string };
+  pageContext: {
+    slug: string;
+    previous: PostNode;
+    next: PostNode;
+  };
+  data: {
+    markdownRemark: PostNode;
+  };
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -71,13 +80,26 @@ const Date = ({ date }): JSX.Element => (
   </Heading>
 );
 
+const NavTitle = (): JSX.Element => (
+  <Heading fontFamily="Kanit, sans" fontWeight={400} fontSize={[28]} p={3}>
+    Related posts
+  </Heading>
+);
+
+const NavFlex = styled(Flex)`
+  background-color: rgb(240, 240, 240);
+`;
+
 export default (props: Props) => {
-  const { title, description, date, html, banner } = props.pageContext;
+  const { pageContext, data } = props;
+  const { previous, next } = pageContext;
+  const { frontmatter, html } = data.markdownRemark;
+  const { title, description, date, banner } = frontmatter;
   return (
     <>
       <SEO type={PageType.Post} title={title} description={description} date={date} />
       <GlobalStyle />
-      {banner ? <Img fluid={banner.childImageSharp.fluid} alt="" /> : null}
+      {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
       <Flex justifyContent="center">
         <Box width={[4 / 5, 3 / 4, 1 / 2]} py={4}>
           <Title title={title} />
@@ -85,6 +107,55 @@ export default (props: Props) => {
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </Box>
       </Flex>
+      <NavFlex justifyContent="center" py={4}>
+        <>
+          <Box width={[3 / 4, 2 / 3, 7 / 12]}>
+            <NavTitle />
+            <Flex flexWrap="wrap">
+              {previous ? (
+                <Box width={[1, 1, 1 / 2]}>
+                  <Card slug={previous.fields.slug} {...previous.frontmatter} />
+                </Box>
+              ) : null}
+              {next ? (
+                <Box width={[1, 1, 1 / 2]}>
+                  <Card slug={next.fields.slug} {...next.frontmatter} />
+                </Box>
+              ) : null}
+            </Flex>
+          </Box>
+        </>
+      </NavFlex>
     </>
   );
 };
+
+export const pageQuery = graphql`
+  query blogPostQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        description
+        date(formatString: "DD MMM, YYYY")
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }
+      }
+    }
+  }
+`;

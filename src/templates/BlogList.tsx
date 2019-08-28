@@ -26,7 +26,7 @@ export default (props: Props) => {
   const { numPage, currentPage, posts, tag } = props.pageContext;
   const blogCards = posts.map((post: Post) => (
     <Box width={[1, 1, 1 / 2]}>
-      <Card {...post} pathPrefix="" />
+      <Card {...post} />
     </Box>
   ));
   return (
