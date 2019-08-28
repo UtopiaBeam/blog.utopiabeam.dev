@@ -13,7 +13,7 @@ interface Props {
       fluid: FluidObject;
     };
   };
-  pathPrefix: string;
+  pathPrefix?: string;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -26,7 +26,7 @@ const BlogCard = styled(Card)`
   background-color: rgb(250, 250, 250);
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  transition: transform .175s ease-in-out
+  transition: transform .175s ease-in-out;
 
   &:hover {
     transform: scale(1.05);
@@ -52,7 +52,7 @@ const BlogText = styled(Text)`
   color: rgba(20, 20, 20, 0.8);
 `;
 
-export default ({ title, slug, description, date, banner, pathPrefix }: Props) => {
+export default ({ title, slug, description, date, banner, pathPrefix = '' }: Props) => {
   const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
   return (
     <>
