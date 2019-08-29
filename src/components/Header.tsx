@@ -89,7 +89,6 @@ export default (props: Props) => {
           fontFamily={description ? 'Kanit' : 'Catamaran'}
           fontWeight={description ? 300 : 400}
         />
-        {/* <Overlay /> */}
       </Flex>
       <Navbar />
     </>

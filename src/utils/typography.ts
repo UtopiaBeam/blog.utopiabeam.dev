@@ -11,7 +11,7 @@ const typography = new Typography({
     },
     {
       name: 'Catamaran',
-      styles: ['300', '400'],
+      styles: ['300', '400', '500'],
     },
     {
       name: 'Kanit',
