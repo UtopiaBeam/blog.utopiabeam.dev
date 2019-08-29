@@ -92,8 +92,8 @@ const NavFlex = styled(Flex)`
   background-color: rgb(240, 240, 240);
 `;
 
-export default (props: Props) => {
-  const { pageContext, data, children } = props;
+export default ({ pageContext, data, children }: Props) => {
+  console.log('BlogPost', children);
   const { previous, next } = pageContext;
   const { frontmatter, html } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;
