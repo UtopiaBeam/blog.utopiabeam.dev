@@ -106,7 +106,7 @@ export default ({ pageContext, data }: Props) => {
           <Subtitle author="Natchapol Srisang" date={date} />
           {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
           <Box py={4}>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <div dangerouslySetInnerHTML={{ __html: html! }} />
           </Box>
         </Box>
       </Flex>
@@ -117,12 +117,20 @@ export default ({ pageContext, data }: Props) => {
             <Flex flexWrap="wrap">
               {previous ? (
                 <Box width={[1, 1, 1 / 2]}>
-                  <Card slug={previous.fields.slug} {...previous.frontmatter} />
+                  <Card
+                    slug={previous.fields.slug}
+                    banner={previous.frontmatter.banner}
+                    title={previous.frontmatter.title}
+                  />
                 </Box>
               ) : null}
               {next ? (
                 <Box width={[1, 1, 1 / 2]}>
-                  <Card slug={next.fields.slug} {...next.frontmatter} />
+                  <Card
+                    slug={next.fields.slug}
+                    banner={next.frontmatter.banner}
+                    title={next.frontmatter.title}
+                  />
                 </Box>
               ) : null}
             </Flex>
