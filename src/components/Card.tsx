@@ -54,6 +54,7 @@ const BlogText = styled(Text)`
 `;
 
 export default ({ title, slug, description, date, banner, pathPrefix = '', children }: Props) => {
+  console.log('Card children', children);
   const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
   return (
     <>
