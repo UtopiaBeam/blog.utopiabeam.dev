@@ -1,6 +1,6 @@
-import React, { ReactNode, Children } from 'react';
-import Img, { FluidObject } from 'gatsby-image';
-import { Flex, Box, Heading, Text, Link } from 'rebass';
+import React from 'react';
+import Img from 'gatsby-image';
+import { Flex, Box, Heading } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
 import { PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
@@ -9,7 +9,6 @@ import Card from '../components/Card';
 import Header from '../components/Header';
 
 interface Props {
-  children?: ReactNode;
   pageContext: {
     slug: string;
     previous: PostNode;
@@ -92,8 +91,7 @@ const NavFlex = styled(Flex)`
   background-color: rgb(240, 240, 240);
 `;
 
-export default ({ pageContext, data, children }: Props) => {
-  console.log('BlogPost', children);
+export default ({ pageContext, data }: Props) => {
   const { previous, next } = pageContext;
   const { frontmatter, html } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;

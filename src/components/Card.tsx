@@ -1,10 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Card, Text, Box, Heading, Link } from 'rebass';
 import Img, { FluidObject } from 'gatsby-image';
 import styled, { createGlobalStyle } from 'styled-components';
 
 interface Props {
-  children?: ReactNode;
   title: string;
   slug: string;
   description: string;
@@ -53,8 +52,7 @@ const BlogText = styled(Text)`
   color: rgba(20, 20, 20, 0.8);
 `;
 
-export default ({ title, slug, description, date, banner, pathPrefix = '', children }: Props) => {
-  console.log('Card children', children);
+export default ({ title, slug, description, date, banner, pathPrefix = '' }: Props) => {
   const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
   return (
     <>
@@ -71,7 +69,6 @@ export default ({ title, slug, description, date, banner, pathPrefix = '', child
           </Box>
         </BlogCard>
       </Link>
-      {children}
     </>
   );
 };
