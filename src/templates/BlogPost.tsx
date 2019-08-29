@@ -129,7 +129,6 @@ export default ({ pageContext, data }: Props) => {
           </Box>
         </>
       </NavFlex>
-      {children}
     </>
   );
 };
