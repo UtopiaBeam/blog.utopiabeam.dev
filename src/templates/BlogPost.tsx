@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, Children } from 'react';
 import Img, { FluidObject } from 'gatsby-image';
 import { Flex, Box, Heading, Text, Link } from 'rebass';
 import styled, { createGlobalStyle } from 'styled-components';
@@ -9,6 +9,7 @@ import Card from '../components/Card';
 import Header from '../components/Header';
 
 interface Props {
+  children?: ReactNode;
   pageContext: {
     slug: string;
     previous: PostNode;
@@ -92,7 +93,7 @@ const NavFlex = styled(Flex)`
 `;
 
 export default (props: Props) => {
-  const { pageContext, data } = props;
+  const { pageContext, data, children } = props;
   const { previous, next } = pageContext;
   const { frontmatter, html } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;
@@ -130,6 +131,7 @@ export default (props: Props) => {
           </Box>
         </>
       </NavFlex>
+      {children}
     </>
   );
 };

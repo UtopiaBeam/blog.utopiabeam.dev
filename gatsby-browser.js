@@ -1,7 +1,7 @@
-import React from 'react';
-import App from './src/components/App';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
+import React from 'react';
+import App from './src/components/App';
 
 export const onServiceWorkerUpdateReady = () => {
   window.location.reload();

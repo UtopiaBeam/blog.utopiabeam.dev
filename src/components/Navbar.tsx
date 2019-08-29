@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Flex, Link, Text } from 'rebass';
 import { Tab } from '../types';
+
+interface Props {
+  children?: ReactNode;
+}
 
 const NavLink = styled(Link)`
   a {
@@ -20,7 +24,7 @@ const NavText = styled(Text)`
   }
 `;
 
-export default () => {
+export default ({ children }: Props) => {
   const tabs: Tab[] = [
     {
       name: 'Home',
@@ -40,5 +44,10 @@ export default () => {
       <NavText>{tab.name.toUpperCase()}</NavText>
     </NavLink>
   ));
-  return <Flex justifyContent="center">{navTabs}</Flex>;
+  return (
+    <>
+      {children}
+      <Flex justifyContent="center">{navTabs}</Flex>
+    </>
+  );
 };
