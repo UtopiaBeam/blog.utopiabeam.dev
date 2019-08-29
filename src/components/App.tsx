@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Footer from './Footer';
 import { createGlobalStyle } from 'styled-components';
 
 interface Props {
-  children: React.ReactChildren;
+  children: ReactNode;
 }
 
 const GlobalStyle = createGlobalStyle`
