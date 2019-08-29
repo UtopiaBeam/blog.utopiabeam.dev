@@ -1,8 +1,8 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const { chunk } = require('lodash');
+const { times } = require('lodash');
 
-const CARD_PER_PAGE = 8;
+const CARD_PER_PAGE = 6;
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -27,10 +27,9 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              date(formatString: "MMM DD, YYYY")
-              description
-              featured
               title
+              description
+              date(formatString: "DD MMM YYYY")
               banner {
                 childImageSharp {
                   fluid(maxWidth: 1920) {
@@ -54,21 +53,6 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             slug
-            description
-            banner {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
-                }
-              }
-            }
           }
         }
       }
@@ -77,21 +61,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogs = result.data.blogs.edges;
   const tags = result.data.tags.edges;
-  const blogLists = chunk(blogs, CARD_PER_PAGE);
-  const tagLists = chunk(tags, CARD_PER_PAGE);
+  const blogPages = Math.ceil(blogs.length / CARD_PER_PAGE);
+  const tagPages = Math.ceil(tags.length / CARD_PER_PAGE);
 
   // Create blog listing pages
-  blogLists.forEach((list, i) => {
+  times(blogPages, i => {
     createPage({
       path: i == 0 ? '/' : `/page/${i + 1}`,
       component: path.resolve('src/templates/BlogList.tsx'),
       context: {
-        numPage: blogLists.length,
+        numPage: blogPages,
         currentPage: i + 1,
-        posts: list.map(({ node }) => {
-          const { frontmatter, fields } = node;
-          return { ...frontmatter, slug: fields.slug };
-        }),
+        skip: i * CARD_PER_PAGE,
+        limit: CARD_PER_PAGE,
       },
     });
   });
@@ -111,20 +93,21 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create tag listing pages
-  tagLists.forEach((list, i) => {
+  times(tagPages, i => {
     createPage({
       path: i === 0 ? 'tags' : `tags/page/${i + 1}`,
       component: path.resolve('src/templates/TagList.tsx'),
       context: {
-        numPage: tagLists.length,
+        numPage: tagPages,
         currentPage: i + 1,
-        tags: list.map(({ node }) => node),
+        skip: i * CARD_PER_PAGE,
+        limit: CARD_PER_PAGE,
       },
     });
   });
 
   // Create blog listing for each tag
-  const tagPostLists = await Promise.all(
+  const tagPosts = await Promise.all(
     tags.map(async ({ node }) => {
       const result = await graphql(`
         {
@@ -139,7 +122,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
                 frontmatter {
                   title
-                  date(formatString: "MMM DD, YYYY")
+                  date(formatString: "DD MMM YYYY")
                   description
                   tags
                   featured
@@ -163,28 +146,26 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       `);
-      const posts = result.data.posts.edges;
       return {
         tag: node,
-        posts,
+        posts: result.data.posts.edges,
       };
     })
   );
 
-  tagPostLists.forEach(({ tag, posts }) => {
-    const postLists = chunk(posts, CARD_PER_PAGE);
-    postLists.forEach((list, i) => {
+  tagPosts.forEach(({ tag, posts }) => {
+    const postPages = Math.ceil(posts.length / CARD_PER_PAGE);
+    times(postPages, i => {
       createPage({
-        path: `tag/${tag.slug}` + (i === 0 ? '/' : `/page/${i + 1}`),
-        component: path.resolve('src/templates/BlogList.tsx'),
+        path: `tags/${tag.slug}` + (i === 0 ? '/' : `/page/${i + 1}`),
+        component: path.resolve('src/templates/TagPost.tsx'),
         context: {
           tag,
-          numPage: postLists.length,
+          numPage: postPages,
           currentPage: i + 1,
-          posts: list.map(({ node }) => {
-            const { frontmatter, fields } = node;
-            return { ...frontmatter, slug: fields.slug };
-          }),
+          skip: i * CARD_PER_PAGE,
+          limit: CARD_PER_PAGE,
+          regex: `/${tag.title}/`,
         },
       });
     });
