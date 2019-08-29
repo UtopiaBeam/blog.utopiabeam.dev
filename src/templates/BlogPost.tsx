@@ -68,15 +68,15 @@ const Title = ({ title }): JSX.Element => (
   </Heading>
 );
 
-const Date = ({ date }): JSX.Element => (
+const Subtitle = ({ author, date }): JSX.Element => (
   <Heading
     fontFamily="Kanit, sans-serif"
-    fontWeight={600}
+    fontWeight={500}
     fontSize={[17, 18]}
     color="rgba(40, 40, 40, 0.5)"
     pb={4}
   >
-    {date}
+    Written by {author} — {date}
   </Heading>
 );
 
@@ -103,7 +103,7 @@ export default (props: Props) => {
       <Flex justifyContent="center">
         <Box width={[4 / 5, 3 / 4, 1 / 2]} py={4}>
           <Title title={title} />
-          <Date date={date} />
+          <Subtitle author='Natchapol Srisang' date={date} />
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </Box>
       </Flex>
