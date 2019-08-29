@@ -6,6 +6,7 @@ import { PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import Card from '../components/Card';
+import Header from '../components/Header';
 
 interface Props {
   pageContext: {
@@ -99,12 +100,15 @@ export default (props: Props) => {
     <>
       <SEO type={PageType.Post} title={title} description={description} date={date} />
       <GlobalStyle />
-      {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
+      <Header />
       <Flex justifyContent="center">
         <Box width={[4 / 5, 3 / 4, 1 / 2]} py={4}>
           <Title title={title} />
-          <Subtitle author='Natchapol Srisang' date={date} />
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Subtitle author="Natchapol Srisang" date={date} />
+          {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
+          <Box py={4}>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Box>
         </Box>
       </Flex>
       <NavFlex justifyContent="center" py={4}>
