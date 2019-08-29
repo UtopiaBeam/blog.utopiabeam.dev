@@ -47,7 +47,7 @@ export default ({ pageContext, data }: Props) => {
     <>
       <SEO title="" type={PageType.List} />
       <GlobalStyle />
-      <Header />
+      <Header {...tag} />
       <Flex justifyContent="center">
         <Box width={[5 / 6, 2 / 3]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
@@ -63,8 +63,9 @@ export default ({ pageContext, data }: Props) => {
 };
 
 export const pageQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query tagPostQuery($skip: Int!, $limit: Int!, $regex: String!) {
     allMarkdownRemark(
+      filter: { frontmatter: { tags: { regex: $regex } } }
       skip: $skip
       limit: $limit
       sort: { fields: frontmatter___date, order: DESC }

@@ -6,12 +6,22 @@ import Card from '../components/Card';
 import Header from '../components/Header';
 import { Tag, PageType } from '../types';
 import SEO from '../components/SEO';
+import { graphql } from 'gatsby';
 
 interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
-    tags: Tag[];
+    skip: number;
+    limit: number;
+    tag: Tag;
+  };
+  data: {
+    allTagsJson: {
+      edges: {
+        node: Tag;
+      }[];
+    };
   };
 }
 
@@ -21,11 +31,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default (props: Props) => {
-  const { numPage, currentPage, tags } = props.pageContext;
+export default ({ pageContext, data }: Props) => {
+  const { numPage, currentPage } = pageContext;
+  const tags: Tag[] = data.allTagsJson.edges.map(({ node }) => node);
   const tagCards = tags.map((tag: Tag) => (
     <Box width={[1, 1, 1 / 2]}>
-      <Card {...tag} pathPrefix="tag" />
+      <Card {...tag} pathPrefix="tags" />
     </Box>
   ));
   return (
@@ -42,3 +53,31 @@ export default (props: Props) => {
     </>
   );
 };
+
+export const pageQuery = graphql`
+  query tagListQuery($skip: Int!, $limit: Int!) {
+    allTagsJson(skip: $skip, limit: $limit, sort: { fields: title, order: ASC }) {
+      edges {
+        node {
+          title
+          slug
+          description
+          banner {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
