@@ -13,6 +13,7 @@ export interface Tag {
 
 export interface Post extends Tag {
   date: string;
+  html?: string;
 }
 
 export interface PostNode {
@@ -30,7 +31,7 @@ export interface PostNode {
       };
     };
   };
-  html: string;
+  html?: string;
 }
 
 export interface Tab {
