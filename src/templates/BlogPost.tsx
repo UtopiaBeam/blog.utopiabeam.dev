@@ -117,20 +117,12 @@ export default ({ pageContext, data }: Props) => {
             <Flex flexWrap="wrap">
               {previous ? (
                 <Box width={[1, 1, 1 / 2]}>
-                  <Card
-                    slug={previous.fields.slug}
-                    banner={previous.frontmatter.banner}
-                    title={previous.frontmatter.title}
-                  />
+                  <Card slug={previous.fields.slug} {...previous.frontmatter} />
                 </Box>
               ) : null}
               {next ? (
                 <Box width={[1, 1, 1 / 2]}>
-                  <Card
-                    slug={next.fields.slug}
-                    banner={next.frontmatter.banner}
-                    title={next.frontmatter.title}
-                  />
+                  <Card slug={next.fields.slug} {...next.frontmatter} />
                 </Box>
               ) : null}
             </Flex>
