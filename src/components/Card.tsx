@@ -6,7 +6,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 interface Props {
   title: string;
   slug: string;
-  description: string;
+  description?: string;
   date?: string;
   banner?: {
     childImageSharp: {
@@ -52,23 +52,30 @@ const BlogText = styled(Text)`
   color: rgba(20, 20, 20, 0.8);
 `;
 
+const Description = ({ desc }) =>
+  desc ? (
+    <BlogText mt={3} fontSize={[16, 17]}>
+      {desc}
+    </BlogText>
+  ) : null;
+
 export default ({ title, slug, description, date, banner, pathPrefix = '' }: Props) => {
   const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
   return (
     <>
       <GlobalStyle />
-      <Link href={pathPrefix ? `${pathPrefix}/${slug}` : slug}>
-        <BlogCard m={3}>
-          {cardBanner}
-          <Box p={3}>
-            {date ? <BlogDate mb={2}>{date}</BlogDate> : null}
-            <BlogTitle as="h1">{title}</BlogTitle>
-            <BlogText mt={3} fontSize={[16, 17]}>
-              {description}
-            </BlogText>
-          </Box>
-        </BlogCard>
-      </Link>
+      <Box p={3} height="100%">
+        <Link href={pathPrefix ? `${pathPrefix}/${slug}` : slug}>
+          <BlogCard height="100%">
+            {cardBanner}
+            <Box p={3}>
+              {date ? <BlogDate mb={2}>{date}</BlogDate> : null}
+              <BlogTitle as="h1">{title}</BlogTitle>
+              <Description desc={description} />
+            </Box>
+          </BlogCard>
+        </Link>
+      </Box>
     </>
   );
 };
