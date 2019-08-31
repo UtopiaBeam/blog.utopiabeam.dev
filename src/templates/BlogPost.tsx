@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import Card from '../components/Card';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 interface Props {
   pageContext: {
@@ -129,6 +130,7 @@ export default ({ pageContext, data }: Props) => {
           </Box>
         </>
       </NavFlex>
+      <Footer />
     </>
   );
 };
