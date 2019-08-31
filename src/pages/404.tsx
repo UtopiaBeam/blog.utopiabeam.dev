@@ -44,7 +44,7 @@ export default () => {
       <SEO title="404" type={PageType.NotFound} />
       <Term p={[4, 5, 6]} alignItems="center" justifyContent="center">
         <Box>
-          <TermText textAlign="center" fontSize={[28]} pb={5}>
+          <TermText textAlign="center" fontSize={[24, 26, 28]} pb={5}>
             ----- 404 ! -----
           </TermText>
           <TermText>$ Oops! looks like you're trying to break this coconut shell</TermText>
