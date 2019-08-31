@@ -74,7 +74,7 @@ export default (props: Props) => {
       <Flex
         justifyContent="center"
         alignItems="center"
-        height={400}
+        height={350}
         flexDirection="column"
         css={{
           background: `url(${
