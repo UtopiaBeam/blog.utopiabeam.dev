@@ -52,4 +52,5 @@ export enum PageType {
   List = 'List',
   Post = 'Post',
   Tag = 'Tag',
+  NotFound = '404',
 }
