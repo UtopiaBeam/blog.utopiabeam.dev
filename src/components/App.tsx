@@ -7,12 +7,12 @@ interface Props {
 }
 
 const GlobalStyle = createGlobalStyle`
-    html {
-        background-color: rgb(250, 250, 250);
-    }
-    a {
-      text-decoration: none;
-    }
+  html {
+      background-color: rgb(250, 250, 250);
+  }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default (props: Props) => {
@@ -20,7 +20,6 @@ export default (props: Props) => {
     <>
       <GlobalStyle />
       {props.children}
-      <Footer />
     </>
   );
 };
