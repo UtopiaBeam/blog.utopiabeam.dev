@@ -17,6 +17,10 @@ const typography = new Typography({
       name: 'Kanit',
       styles: ['300', '400', '600'],
     },
+    {
+      name: 'Roboto Mono',
+      styles: ['500'],
+    },
   ],
 });
 
