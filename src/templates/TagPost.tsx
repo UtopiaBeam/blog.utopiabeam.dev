@@ -45,7 +45,7 @@ export default ({ pageContext, data }: Props) => {
   ));
   return (
     <>
-      <SEO title="" type={PageType.List} />
+      <SEO title={tag.title} type={PageType.List} />
       <GlobalStyle />
       <Header {...tag} />
       <Flex justifyContent="center">
