@@ -7,13 +7,12 @@ import Header from '../components/Header';
 import { Tag, PageType } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
+import ListTitle from '../components/ListTitle';
 
 interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
-    skip: number;
-    limit: number;
     tag: Tag;
   };
   data: {
@@ -46,6 +45,7 @@ export default ({ pageContext, data }: Props) => {
       <Header />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
+          <ListTitle title="Tags" />
           <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
