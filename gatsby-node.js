@@ -160,11 +160,11 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `tags/${tag.slug}` + (i === 0 ? '/' : `/page/${i + 1}`),
         component: path.resolve('src/templates/TagPost.tsx'),
         context: {
-          tag,
           numPage: postPages,
           currentPage: i + 1,
           skip: i * CARD_PER_PAGE,
           limit: CARD_PER_PAGE,
+          tagTitle: tag.title,
           regex: `/${tag.title}/`,
         },
       });
