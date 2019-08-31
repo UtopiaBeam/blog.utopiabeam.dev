@@ -82,7 +82,7 @@ const Subtitle = ({ author, date }): JSX.Element => (
 );
 
 const NavTitle = (): JSX.Element => (
-  <Heading fontFamily="Kanit, sans" fontWeight={400} fontSize={[28]} p={3}>
+  <Heading fontFamily="Kanit, sans-serif" fontWeight={400} fontSize={[28]} p={3}>
     Other posts
   </Heading>
 );

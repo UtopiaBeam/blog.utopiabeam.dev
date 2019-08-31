@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import { Post, Tag, PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
+import ListTitle from '../components/ListTitle';
 
 interface Props {
   pageContext: {
@@ -50,6 +51,7 @@ export default ({ pageContext, data }: Props) => {
       <Header />
       <Flex justifyContent="center">
         <Box width={[5 / 6, 2 / 3]}>
+          <ListTitle title="Posts" />
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
