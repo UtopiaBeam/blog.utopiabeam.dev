@@ -12,14 +12,12 @@ interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
-    skip: number;
-    limit: number;
-    tag: Tag;
   };
   data: {
     allMarkdownRemark: {
       edges: { node: PostNode }[];
     };
+    tag: Tag;
   };
 }
 
@@ -30,8 +28,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default ({ pageContext, data }: Props) => {
-  const { numPage, currentPage, tag } = pageContext;
-  const posts: Post[] = data.allMarkdownRemark.edges.map(({ node }) => {
+  const { numPage, currentPage } = pageContext;
+  const { tag, allMarkdownRemark } = data;
+  const posts: Post[] = allMarkdownRemark.edges.map(({ node }) => {
     const { fields, frontmatter } = node;
     return {
       ...frontmatter,
@@ -63,7 +62,7 @@ export default ({ pageContext, data }: Props) => {
 };
 
 export const pageQuery = graphql`
-  query tagPostQuery($skip: Int!, $limit: Int!, $regex: String!) {
+  query tagPostQuery($skip: Int!, $limit: Int!, $regex: String!, $tagTitle: String!) {
     allMarkdownRemark(
       filter: { frontmatter: { tags: { regex: $regex } } }
       skip: $skip
@@ -94,6 +93,18 @@ export const pageQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    tag: tagsJson(title: { eq: $tagTitle }) {
+      title
+      slug
+      description
+      banner {
+        childImageSharp {
+          fluid {
+            src
           }
         }
       }
