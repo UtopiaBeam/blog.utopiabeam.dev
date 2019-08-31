@@ -13,8 +13,6 @@ interface Props {
   pageContext: {
     numPage: number;
     currentPage: number;
-    skip: number;
-    limit: number;
     tag: Tag;
   };
   data: {
