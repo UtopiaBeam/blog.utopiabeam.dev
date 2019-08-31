@@ -8,6 +8,7 @@ import { Tag, PageType } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import ListTitle from '../components/ListTitle';
+import Footer from '../components/Footer';
 
 interface Props {
   pageContext: {
@@ -50,6 +51,7 @@ export default ({ pageContext, data }: Props) => {
         </Box>
       </Flex>
       <Pagination numPage={numPage} currentPage={currentPage} pathPrefix="tags" />
+      <Footer />
     </>
   );
 };
