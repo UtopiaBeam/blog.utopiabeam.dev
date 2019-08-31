@@ -8,6 +8,7 @@ import { Post, Tag, PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import ListTitle from '../components/ListTitle';
+import Footer from '../components/Footer';
 
 interface Props {
   pageContext: {
@@ -58,6 +59,7 @@ export default ({ pageContext, data }: Props) => {
         currentPage={currentPage}
         pathPrefix={tag ? `tag/${tag.slug}` : ''}
       />
+      <Footer />
     </>
   );
 };
