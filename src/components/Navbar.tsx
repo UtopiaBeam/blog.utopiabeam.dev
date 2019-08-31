@@ -47,7 +47,7 @@ export default ({ children }: Props) => {
   return (
     <>
       {children}
-      <Flex justifyContent="center">{navTabs}</Flex>
+      <Flex justifyContent="center" pb={4}>{navTabs}</Flex>
     </>
   );
 };
