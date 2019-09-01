@@ -94,11 +94,18 @@ const NavFlex = styled(Flex)`
 
 export default ({ pageContext, data }: Props) => {
   const { previous, next } = pageContext;
-  const { frontmatter, html } = data.markdownRemark;
+  const { frontmatter, html, fields } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;
   return (
     <>
-      <SEO type={PageType.Post} title={title} description={description} date={date} />
+      <SEO
+        type={PageType.Post}
+        title={title}
+        slug={fields.slug}
+        description={description}
+        date={date}
+        banner={banner.childImageSharp.fluid.src}
+      />
       <GlobalStyle />
       <Header />
       <Flex justifyContent="center">
