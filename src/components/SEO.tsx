@@ -30,7 +30,7 @@ export default (props: Props) => {
   const {
     title,
     description = siteMetadata.description,
-    banner = './bg.jpg',
+    banner = '/bg.jpg',
     slug,
     date,
     type,
