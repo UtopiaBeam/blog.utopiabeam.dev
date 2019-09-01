@@ -10,6 +10,7 @@ module.exports = {
         ? 'https://staging-blog.utopiabeam.dev'
         : 'https://localhost:8000',
     fbUrl: 'https://www.facebook.com/natchapolsrisang',
+    fbApp: '100001227099580',
     githubUrl: 'https://github.com/UtopiaBeam',
   },
   plugins: [
