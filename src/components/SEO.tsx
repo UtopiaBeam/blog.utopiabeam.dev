@@ -21,6 +21,7 @@ export default (props: Props) => {
           description
           author
           siteUrl
+          fbApp
         }
       }
     }
@@ -100,6 +101,10 @@ export default (props: Props) => {
     {
       property: 'og:image:alt',
       content: 'banner',
+    },
+    {
+      property: 'fb:app_id',
+      content: siteMetadata.fbApp,
     },
   ];
   return (
