@@ -68,7 +68,7 @@ export default (props: Props) => {
     },
     {
       property: 'og:url',
-      content: `${siteMetadata.siteUrl}${slug}`,
+      content: slug ? `${siteMetadata.siteUrl}${slug}` : siteMetadata.siteUrl,
     },
     {
       property: 'og:type',
