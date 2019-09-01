@@ -27,7 +27,14 @@ export default (props: Props) => {
     }
   `);
   const siteMetadata = data.site.siteMetadata;
-  const { title, description = siteMetadata.description, banner, slug, date, type } = props;
+  const {
+    title,
+    description = siteMetadata.description,
+    banner = './bg.jpg',
+    slug,
+    date,
+    type,
+  } = props;
   const pageTitle = title ? `${title} | ${siteMetadata.title}` : siteMetadata.title;
   const meta = [
     {
