@@ -7,7 +7,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Athiti',
-      styles: ['600', ' 700'],
+      styles: ['600', '700'],
     },
     {
       name: 'Catamaran',
