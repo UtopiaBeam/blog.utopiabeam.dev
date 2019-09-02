@@ -37,27 +37,30 @@ const Banner = styled(Img)`
   border-radius: 5px 5px 0 0;
 `;
 
-const BlogTitle = styled(Heading)`
-  font-size: 1.6em;
-  color: rgb(10, 10, 10);
-`;
+const BlogTitle = props => (
+  <Heading
+    {...props}
+    fontSize={[26, 28, 30]}
+    fontFamily="Kanit, sans-serif"
+    fontWeight={500}
+    color="rgb(10, 10, 10)"
+    py={3}
+  />
+);
 
-const BlogDate = styled(Text)`
-  font-size: 0.85em;
-  font-family: Kanit, sans-serif;
-  color: rgba(10, 10, 10, 0.5);
-`;
+const BlogDate = props => (
+  <Text
+    {...props}
+    fontSize={[15, 16, 17]}
+    fontFamily="Kanit, sans-serif"
+    fontWeight={400}
+    color="rgba(10, 10, 10, 0.5)"
+  />
+);
 
-const BlogText = styled(Text)`
-  color: rgba(20, 20, 20, 0.8);
-`;
-
-const Description = ({ desc }) =>
-  desc ? (
-    <BlogText mt={3} fontSize={[16, 17]}>
-      {desc}
-    </BlogText>
-  ) : null;
+const Description = props => (
+  <Text {...props} fontSize={[16, 17, 18]} color="rgba(10, 10, 10, 0.8)" />
+);
 
 export default ({ title, slug, description, date, banner, pathPrefix = '' }: Props) => {
   const cardBanner = banner ? <Banner fluid={banner.childImageSharp.fluid} /> : null;
@@ -69,9 +72,9 @@ export default ({ title, slug, description, date, banner, pathPrefix = '' }: Pro
           <BlogCard height="100%">
             {cardBanner}
             <Box p={3}>
-              {date ? <BlogDate mb={2}>{date}</BlogDate> : null}
-              <BlogTitle as="h1">{title}</BlogTitle>
-              <Description desc={description} />
+              {date ? <BlogDate>{date}</BlogDate> : null}
+              <BlogTitle>{title}</BlogTitle>
+              <Description>{description}</Description>
             </Box>
           </BlogCard>
         </Link>
