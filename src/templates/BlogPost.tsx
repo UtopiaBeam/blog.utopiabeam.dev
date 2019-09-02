@@ -59,7 +59,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Title = ({ title }): JSX.Element => (
   <Heading
-    as="h1"
     fontFamily="Athiti, sans-serif"
     fontWeight={700}
     fontSize={[40, 44, 48]}
