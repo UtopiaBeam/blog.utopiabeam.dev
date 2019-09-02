@@ -29,9 +29,9 @@ const Logo = ({ title }): JSX.Element => {
   return title ? (
     <Heading
       textAlign="center"
-      fontFamily="Athiti, sans-serif"
+      fontFamily="Space Mono, monospace"
       fontWeight={700}
-      fontSize={[50, 60, 72]}
+      fontSize={[36, 48, 60]}
       color="#ffffff"
       pb={4}
     >
