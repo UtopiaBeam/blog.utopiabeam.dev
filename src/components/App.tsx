@@ -8,7 +8,7 @@ interface Props {
 
 const GlobalStyle = createGlobalStyle`
   html {
-      background-color: rgb(250, 250, 250);
+    background-color: rgb(250, 250, 250);
   }
   a {
     text-decoration: none;
