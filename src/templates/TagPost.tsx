@@ -51,7 +51,6 @@ export default ({ pageContext, data }: Props) => {
       <Header {...tag} />
       <Flex justifyContent="center">
         <Box width={[5 / 6, 2 / 3]}>
-          <ListTitle title="Posts" />
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
