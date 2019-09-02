@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               description
               date(formatString: "DD MMM YYYY")
+              featured
               banner {
                 childImageSharp {
                   fluid(maxWidth: 1920) {
@@ -64,12 +65,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPages = Math.ceil(blogs.length / CARD_PER_PAGE);
   const tagPages = Math.ceil(tags.length / CARD_PER_PAGE);
 
+  const featuredPost = blogs.filter(({ node }) => node.frontmatter.featured === true)[0];
+
   // Create blog listing pages
   times(blogPages, i => {
     createPage({
-      path: i == 0 ? '/' : `/page/${i + 1}`,
+      path: i === 0 ? '/' : `/page/${i + 1}`,
       component: path.resolve('src/templates/BlogList.tsx'),
       context: {
+        featured: i === 0 ? featuredPost.node : null,
         numPage: blogPages,
         currentPage: i + 1,
         skip: i * CARD_PER_PAGE,

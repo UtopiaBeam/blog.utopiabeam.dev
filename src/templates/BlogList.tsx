@@ -9,9 +9,12 @@ import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import ListTitle from '../components/ListTitle';
 import Footer from '../components/Footer';
+import Featured from '../components/Featured';
+import { relative } from 'path';
 
 interface Props {
   pageContext: {
+    featured: PostNode;
     numPage: number;
     currentPage: number;
     tag: Tag;
@@ -30,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default ({ pageContext, data }: Props) => {
-  const { numPage, currentPage, tag } = pageContext;
+  const { numPage, currentPage, tag, featured } = pageContext;
   const posts: Post[] = data.allMarkdownRemark.edges.map(({ node }) => {
     const { fields, frontmatter } = node;
     return {
@@ -49,8 +52,10 @@ export default ({ pageContext, data }: Props) => {
       <GlobalStyle />
       <Header />
       <Flex justifyContent="center">
-        <Box width={[5 / 6, 2 / 3]}>
-          <ListTitle title="Posts" />
+        <Box width={[1, 2 / 3, 1 / 2]}>{featured ? <Featured {...featured} /> : null}</Box>
+      </Flex>
+      <Flex justifyContent="center">
+        <Box width={[5 / 6, 2 / 3]} css={{ position: 'relative' }}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
