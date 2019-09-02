@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 interface Props {
   pageContext: {
     slug: string;
+    author: string;
     previous: PostNode;
     next: PostNode;
   };
@@ -57,28 +58,26 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Title = ({ title }): JSX.Element => (
+const Title = props => (
   <Heading
-    fontFamily="Athiti, sans-serif"
+    {...props}
+    fontFamily="Kanit, sans-serif"
     fontWeight={700}
-    fontSize={[40, 44, 48]}
+    fontSize={[36, 40, 44]}
     pt={2}
     pb={3}
-  >
-    {title}
-  </Heading>
+  />
 );
 
-const Subtitle = ({ author, date }): JSX.Element => (
+const Date = props => (
   <Heading
+    {...props}
     fontFamily="Kanit, sans-serif"
-    fontWeight={500}
-    fontSize={[17, 18]}
+    fontWeight={400}
+    fontSize={[16, 17, 18]}
     color="rgba(40, 40, 40, 0.5)"
     pb={4}
-  >
-    Written by {author} — {date}
-  </Heading>
+  />
 );
 
 const NavTitle = (): JSX.Element => (
@@ -92,7 +91,7 @@ const NavFlex = styled(Flex)`
 `;
 
 export default ({ pageContext, data }: Props) => {
-  const { previous, next } = pageContext;
+  const { author, previous, next } = pageContext;
   const { frontmatter, html, fields } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;
   return (
@@ -109,8 +108,10 @@ export default ({ pageContext, data }: Props) => {
       <Header />
       <Flex justifyContent="center">
         <Box width={[4 / 5, 3 / 4, 1 / 2]} py={4}>
-          <Title title={title} />
-          <Subtitle author="Natchapol Srisang" date={date} />
+          <Title>{title}</Title>
+          <Date>
+            Written by {author} — {date}
+          </Date>
           {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
           <Box py={4}>
             <div dangerouslySetInnerHTML={{ __html: html! }} />

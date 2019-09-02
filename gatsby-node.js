@@ -20,6 +20,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
+      site {
+        siteMetadata {
+          author
+        }
+      }
       blogs: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
@@ -60,8 +65,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const blogs = result.data.blogs.edges;
-  const tags = result.data.tags.edges;
+  const { data } = result;
+  const blogs = data.blogs.edges;
+  const tags = data.tags.edges;
+  const { author } = data.site.siteMetadata;
   const blogPages = Math.ceil(blogs.length / CARD_PER_PAGE);
   const tagPages = Math.ceil(tags.length / CARD_PER_PAGE);
 
@@ -90,6 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve('src/templates/BlogPost.tsx'),
       context: {
         slug: fields.slug,
+        author,
         previous: i > 0 ? blogs[i - 1].node : null,
         next: i < blogs.length - 1 ? blogs[i + 1].node : null,
       },
