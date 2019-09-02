@@ -7,7 +7,6 @@ import Header from '../components/Header';
 import { Post, Tag, PageType, PostNode } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import ListTitle from '../components/ListTitle';
 import Footer from '../components/Footer';
 
 interface Props {
