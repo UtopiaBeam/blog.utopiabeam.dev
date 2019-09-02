@@ -3,11 +3,10 @@ import Typography from 'typography';
 const typography = new Typography({
   baseFontSize: '20px',
   baseLineHeight: 1.7,
-  headerFontFamily: ['Athiti', 'sans-serif'],
   googleFonts: [
     {
-      name: 'Athiti',
-      styles: ['600', '700'],
+      name: 'Space Mono',
+      styles: ['700'],
     },
     {
       name: 'Catamaran',
@@ -15,7 +14,7 @@ const typography = new Typography({
     },
     {
       name: 'Kanit',
-      styles: ['300', '400', '600'],
+      styles: ['300', '400', '500', '600'],
     },
     {
       name: 'Roboto Mono',
