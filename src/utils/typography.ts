@@ -3,6 +3,9 @@ import Typography from 'typography';
 const typography = new Typography({
   baseFontSize: '20px',
   baseLineHeight: 1.7,
+  headerFontFamily: ['Kanit', 'sans-serif'],
+  headerWeight: 500,
+  scaleRatio: 1.75,
   googleFonts: [
     {
       name: 'Space Mono',
