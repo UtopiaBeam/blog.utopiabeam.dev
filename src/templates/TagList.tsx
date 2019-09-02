@@ -1,13 +1,12 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Flex, Box } from 'rebass';
+import { Flex, Box, Heading } from 'rebass';
 import Pagination from '../components/Pagination';
 import Card from '../components/Card';
 import Header from '../components/Header';
 import { Tag, PageType } from '../types';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import ListTitle from '../components/ListTitle';
 import Footer from '../components/Footer';
 
 interface Props {
@@ -31,6 +30,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Title = props => (
+  <Heading
+    {...props}
+    fontFamily="Kanit, sans-serif"
+    fontWeight={500}
+    fontSize={[36, 38, 40]}
+    p={3}
+  ></Heading>
+);
+
 export default ({ pageContext, data }: Props) => {
   const { numPage, currentPage } = pageContext;
   const tags: Tag[] = data.allTagsJson.edges.map(({ node }) => node);
@@ -46,7 +55,7 @@ export default ({ pageContext, data }: Props) => {
       <Header />
       <Flex justifyContent="center">
         <Box width={[1, 2 / 3]}>
-          <ListTitle title="Tags" />
+          <Title>Tags</Title>
           <Flex flexWrap="wrap">{tagCards}</Flex>
         </Box>
       </Flex>
