@@ -13,8 +13,7 @@ interface Props {
   pageContext: {
     slug: string;
     author: string;
-    previous: PostNode;
-    next: PostNode;
+    others: PostNode[];
   };
   data: {
     markdownRemark: PostNode;
@@ -102,9 +101,15 @@ const NavFlex = styled(Flex)`
 `;
 
 export default ({ pageContext, data }: Props) => {
-  const { author, previous, next } = pageContext;
+  const { author, others } = pageContext;
   const { frontmatter, html, fields } = data.markdownRemark;
   const { title, description, date, banner } = frontmatter;
+  const otherPosts = others.map(post => (
+    <Box width={[1, 1, 1 / 2]}>
+      <Card slug={post.fields.slug} {...post.frontmatter} />
+    </Box>
+  ));
+
   return (
     <>
       <SEO
@@ -133,18 +138,7 @@ export default ({ pageContext, data }: Props) => {
         <>
           <Box width={[3 / 4, 2 / 3, 7 / 12]}>
             <NavTitle />
-            <Flex flexWrap="wrap">
-              {previous ? (
-                <Box width={[1, 1, 1 / 2]}>
-                  <Card slug={previous.fields.slug} {...previous.frontmatter} />
-                </Box>
-              ) : null}
-              {next ? (
-                <Box width={[1, 1, 1 / 2]}>
-                  <Card slug={next.fields.slug} {...next.frontmatter} />
-                </Box>
-              ) : null}
-            </Flex>
+            <Flex flexWrap="wrap">{otherPosts}</Flex>
           </Box>
         </>
       </NavFlex>
