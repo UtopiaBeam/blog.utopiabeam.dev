@@ -37,7 +37,7 @@ const FeatureText = props => (
 );
 
 const BlogTitle = props => (
-  <Heading {...props} fontSize={[24, 30, 36]} fontFamily="Kanit, sans-serif" fontWeight={500} />
+  <Heading {...props} fontSize={[28, 32, 36]} fontFamily="Kanit, sans-serif" fontWeight={500} />
 );
 
 const Description = props => <Text {...props} fontSize={[16, 18, 20]} />;
