@@ -98,8 +98,12 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: fields.slug,
         author,
-        previous: i > 0 ? blogs[i - 1].node : null,
-        next: i < blogs.length - 1 ? blogs[i + 1].node : null,
+        others:
+          i === 0
+            ? [blogs[1].node, blogs[2].node]
+            : i === blogs.length - 1
+            ? [blogs[i - 2].node, blogs[i - 1].node]
+            : [blogs[i - 1].node, blogs[i + 1].node],
       },
     });
   });
