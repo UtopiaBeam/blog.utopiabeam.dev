@@ -67,7 +67,7 @@ export default ({ title, slug, description, date, banner, pathPrefix = '' }: Pro
   return (
     <>
       <GlobalStyle />
-      <Box p={3} height="100%">
+      <Box py={3} px={[2, 3, 3]} height="100%">
         <Link href={pathPrefix ? `${pathPrefix}/${slug}` : slug}>
           <BlogCard height="100%">
             {cardBanner}
