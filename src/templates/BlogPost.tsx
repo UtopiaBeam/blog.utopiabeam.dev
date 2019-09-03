@@ -31,16 +31,28 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     color: rgb(20, 20, 20);
+
+    @media only screen and (max-width: 420px) {
+      font-size: 18px;
+    }
   }
   pre[class*="language-"] {
     border-radius: 5px;
     
     &>code {
       font-size: 17px;
+
+      @media only screen and (max-width: 420px) {
+        font-size: 16px;
+      }
     }
   }
   :not(pre)>code {
     font-size: 18px;
+
+    @media only screen and (max-width: 420px) {
+      font-size: 17px;
+    }
   }
   .katex-html {
     overflow-x: scroll;
@@ -64,7 +76,6 @@ const Title = props => (
     fontFamily="Kanit, sans-serif"
     fontWeight={700}
     fontSize={[36, 40, 44]}
-    pt={2}
     pb={3}
   />
 );
