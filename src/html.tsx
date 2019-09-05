@@ -37,6 +37,7 @@ export default (props: Props) => {
         />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon-precomposed" href="/favicon.ico" />
+        <script src="https://kit.fontawesome.com/2c38a4903c.js" />
         {headComponents}
       </head>
       <body {...bodyAttributes}>
