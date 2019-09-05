@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 import Card from '../components/Card';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Share from '../components/Share';
 
 interface Props {
   pageContext: {
@@ -131,6 +132,9 @@ export default ({ pageContext, data }: Props) => {
           {banner ? <Img fluid={banner.childImageSharp.fluid} alt="banner" /> : null}
           <Box py={4}>
             <div dangerouslySetInnerHTML={{ __html: html! }} />
+          </Box>
+          <Box>
+            <Share slug={fields.slug} />
           </Box>
         </Box>
       </Flex>
