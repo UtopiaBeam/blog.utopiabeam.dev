@@ -1,60 +1,72 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Text, Flex } from 'rebass';
+import { Text, Flex, Box } from 'rebass';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LineShareButton,
+  LineIcon,
+} from 'react-share';
 
 interface Props {
+  title: string;
   slug: string;
 }
 
-const GlobalStyle = createGlobalStyle`
-  .item {
-    padding-right: 20px;
-  }
-`;
-
-const Icon = styled.span`
-  :hover {
-    color: rgba(36, 89, 173);
-  }
-`;
+const Item = props => <Box {...props} pr={3} />;
 
 const Label = props => (
   <Text
     {...props}
-    fontSize={[18, 19, 20]}
+    fontSize={[18, 22]}
     fontFamily="Kanit, sans-serif"
     fontWeight={400}
     color="rgb(60, 60, 60)"
+    pr={3}
+    pb={2}
   >
     Share this post :
   </Text>
 );
 
-export default (props: Props) => {
+export default ({ title, slug }: Props) => {
   const data = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
           siteUrl
+          author
         }
       }
     }
   `);
-  const { siteUrl } = data.site.siteMetadata;
-  const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${props.slug}`;
-
-  console.log(fbUrl);
+  const { siteUrl, author } = data.site.siteMetadata;
+  const postUrl = siteUrl + slug;
 
   return (
     <>
-      <GlobalStyle />
       <hr />
-      <Flex alignItems="center">
-        <Label className="item" />
-        <a href={fbUrl} target="blank">
-          <Icon className="item fab fa-facebook fa-lg" />
-        </a>
+      <Flex flexWrap="wrap">
+        <Label />
+        <Flex alignItems="center">
+          <Item>
+            <FacebookShareButton url={postUrl}>
+              <FacebookIcon size={40} round={true} />
+            </FacebookShareButton>
+          </Item>
+          <Item>
+            <TwitterShareButton url={postUrl} title={`${title} by ${author}\n`}>
+              <TwitterIcon size={40} round={true} />
+            </TwitterShareButton>
+          </Item>
+          <Item>
+            <LineShareButton url={postUrl} title={`${title} by ${author}\n`}>
+              <LineIcon size={40} round={true} />
+            </LineShareButton>
+          </Item>
+        </Flex>
       </Flex>
     </>
   );
