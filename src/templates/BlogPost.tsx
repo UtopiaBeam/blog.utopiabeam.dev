@@ -134,7 +134,7 @@ export default ({ pageContext, data }: Props) => {
             <div dangerouslySetInnerHTML={{ __html: html! }} />
           </Box>
           <Box>
-            <Share slug={fields.slug} />
+            <Share title={title} slug={fields.slug} />
           </Box>
         </Box>
       </Flex>
