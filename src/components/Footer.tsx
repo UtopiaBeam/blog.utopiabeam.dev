@@ -37,8 +37,14 @@ export default () => {
   return (
     <NavFlex justifyContent="center" p={4}>
       <NavText fontFamily="Kanit, sans-serif" fontSize={[14, 15, 16]} fontWeight={300}>
-        {author} © {new Date().getFullYear()} · <NavLink href={fbUrl}>Facebook</NavLink> ·{' '}
-        <NavLink href={githubUrl}>GitHub</NavLink>
+        {author} © {new Date().getFullYear()} ·{' '}
+        <NavLink href={fbUrl} target="blank">
+          Facebook
+        </NavLink>{' '}
+        ·{' '}
+        <NavLink href={githubUrl} target="blank">
+          GitHub
+        </NavLink>
       </NavText>
     </NavFlex>
   );
