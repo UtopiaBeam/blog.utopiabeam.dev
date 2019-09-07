@@ -76,14 +76,7 @@ export const pageQuery = graphql`
           banner {
             childImageSharp {
               fluid {
-                base64
-                tracedSVG
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
+                ...GatsbyImageSharpFluid
               }
             }
           }
