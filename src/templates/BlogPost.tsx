@@ -169,7 +169,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMM, YYYY")
         banner {
           childImageSharp {
-            fluid(maxWidth: 1920) {
+            fluid(maxWidth: 1920, quality: 90) {
               base64
               tracedSVG
               aspectRatio
