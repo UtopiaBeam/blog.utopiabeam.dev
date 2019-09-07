@@ -112,7 +112,10 @@ export default (props: Props) => {
     {
       property: 'fb:app_id',
       content: siteMetadata.fbApp,
-    },
+    }, {
+      property: 'article:author',
+      content: 'https://www.facebook.com/natchapolsrisang',
+    }
   ];
   return (
     <Helmet title={pageTitle} meta={meta}>
