@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './Navbar';
 import { Flex, Heading } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
-import logo from '../../static/logo.png';
 import { FluidObject } from 'gatsby-image';
 
 interface Site {
@@ -26,19 +25,21 @@ interface Data {
 }
 
 const Logo = ({ title }): JSX.Element => {
-  return title ? (
+  return (
     <Heading
       textAlign="center"
       fontFamily="Space Mono, monospace"
       fontWeight={700}
       fontSize={[36, 48, 60]}
       color="#ffffff"
-      pb={4}
+      pb={5}
     >
-      {title}
+      <Flex>
+        <div style={{ color: 'rgb(255, 165, 0)' }}>{'{'}</div>
+        {title ? title : 'UtopiaBeam'}
+        <div style={{ color: 'rgb(255, 165, 0)' }}>{'}'}</div>
+      </Flex>
     </Heading>
-  ) : (
-    <img src={logo} alt="logo" width="550px" />
   );
 };
 
@@ -48,7 +49,7 @@ const Description = ({ desc, fontFamily, fontWeight }): JSX.Element => {
       textAlign="center"
       fontFamily={`${fontFamily}, sans-serif`}
       fontWeight={fontWeight}
-      fontSize={[20, 24, 28]}
+      fontSize={[18, 23, 28]}
       letterSpacing={2}
       color="rgba(250, 250, 250, 0.8)"
       mx={[3, 4, 5]}
