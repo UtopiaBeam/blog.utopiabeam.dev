@@ -49,7 +49,7 @@ const Description = ({ desc, fontFamily, fontWeight }): JSX.Element => {
       textAlign="center"
       fontFamily={`${fontFamily}, sans-serif`}
       fontWeight={fontWeight}
-      fontSize={[18, 23, 28]}
+      fontSize={[18, 22, 26]}
       letterSpacing={2}
       color="rgba(250, 250, 250, 0.8)"
       mx={[3, 4, 5]}
