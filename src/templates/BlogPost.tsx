@@ -36,6 +36,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 18px;
     }
   }
+  ul>li {
+    @media only screen and (max-width: 420px) {
+      font-size: 18px;
+    }
+  }
   pre[class*="language-"] {
     border-radius: 5px;
     
