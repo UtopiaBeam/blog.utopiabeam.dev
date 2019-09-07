@@ -86,7 +86,7 @@ export const pageQuery = graphql`
             title
             banner {
               childImageSharp {
-                fluid(maxWidth: 1920) {
+                fluid(maxWidth: 1920, quality: 90) {
                   base64
                   tracedSVG
                   aspectRatio
