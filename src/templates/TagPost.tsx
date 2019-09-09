@@ -98,7 +98,7 @@ export const pageQuery = graphql`
       description
       banner {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 1920, quality: 90) {
             src
           }
         }
