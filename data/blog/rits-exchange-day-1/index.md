@@ -1,6 +1,6 @@
 ---
 title: บันทึกแลกเปลี่ยนแดนอุทัย — Day 1 (18/4/2016)
-description: บันทึก Ritsumeikan Exchange Program วันที่ 1 — ทำไมเดินไกลขนาดนี้นะ
+description: บันทึก Ritsumeikan Exchange Program วันที่ 1 — เมื่อไหร่จะถึงโรงเรียนเนี่ย
 date: '2019-09-10'
 tags: Review, Diary
 banner: ./banner.jpg
