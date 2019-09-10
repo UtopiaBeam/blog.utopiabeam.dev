@@ -32,7 +32,8 @@ const Logo = ({ title }): JSX.Element => {
       fontWeight={700}
       fontSize={[36, 48, 60]}
       color="#ffffff"
-      pb={5}
+      mb={[4, 5]}
+      mt={5}
     >
       <Flex>
         <div style={{ color: 'rgb(255, 165, 0)' }}>{'{'}</div>
@@ -53,6 +54,7 @@ const Description = ({ desc, fontFamily, fontWeight }): JSX.Element => {
       letterSpacing={2}
       color="rgba(250, 250, 250, 0.8)"
       mx={[3, 4, 5]}
+      mb={5}
     >
       {desc}
     </Heading>
@@ -75,7 +77,6 @@ export default (props: Props) => {
       <Flex
         justifyContent="center"
         alignItems="center"
-        height={350}
         flexDirection="column"
         css={{
           background: `url(${
