@@ -124,7 +124,7 @@ export default ({ pageContext, data }: Props) => {
         slug={fields.slug}
         description={description}
         date={date}
-        banner={banner.childImageSharp.fluid.src}
+        banner={banner ? banner.childImageSharp.fluid.src : undefined}
       />
       <GlobalStyle />
       <Header />
