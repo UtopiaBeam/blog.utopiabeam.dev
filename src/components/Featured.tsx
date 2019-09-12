@@ -33,20 +33,20 @@ const Content = styled(Box)`
 `;
 
 const FeatureText = props => (
-  <Heading {...props} fontSize={[16, 18, 20]} fontFamily="Kanit, sans-serif" fontWeight={500} />
+  <Heading {...props} fontSize={[14, 16, 18, 20]} fontFamily="Kanit, sans-serif" fontWeight={500} />
 );
 
 const BlogTitle = props => (
-  <Heading {...props} fontSize={[28, 32, 36]} fontFamily="Kanit, sans-serif" fontWeight={500} />
+  <Heading {...props} fontSize={[24, 28, 32, 36]} fontFamily="Kanit, sans-serif" fontWeight={500} />
 );
 
-const Description = props => <Text {...props} fontSize={[16, 18, 20]} />;
+const Description = props => <Text {...props} fontSize={[14, 16, 18, 20]} />;
 
 export default ({ fields, frontmatter }: PostNode) => {
   const { title, description, banner } = frontmatter;
   return (
     <Link href={fields.slug}>
-      <BlogCard m={[3]}>
+      <BlogCard m={[2, 2, 3, 3]}>
         <Background fluid={banner.childImageSharp.fluid} />
         <Content p={3}>
           <FeatureText>FEATURED</FeatureText>
