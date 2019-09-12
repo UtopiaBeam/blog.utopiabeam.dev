@@ -36,7 +36,8 @@ const GlobalStyle = createGlobalStyle`
       font-size: 18px;
     }
   }
-  ul>li {
+  ul>li, ol>li {
+    color: rgb(20, 20, 20);
     @media only screen and (max-width: 420px) {
       font-size: 18px;
     }
@@ -66,6 +67,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.2em;
     padding: 0 1.5em;
     border-left: 0.3em solid rgba(44, 120, 212, 0.6);
+
+    @media only screen and (max-width: 420px) {
+      padding: 0 1em;
+    }
   }
   table {
     table-layout: fixed;
