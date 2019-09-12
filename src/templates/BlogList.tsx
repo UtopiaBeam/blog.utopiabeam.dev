@@ -50,10 +50,12 @@ export default ({ pageContext, data }: Props) => {
       <GlobalStyle />
       <Header />
       <Flex justifyContent="center">
-        <Box width={[1, 5 / 6, 1 / 2]}>{featured ? <Featured {...featured} /> : null}</Box>
+        <Box width={[1, 20 / 24, 16 / 24, 14 / 24]}>
+          {featured ? <Featured {...featured} /> : null}
+        </Box>
       </Flex>
       <Flex justifyContent="center">
-        <Box width={[5 / 6, 3 / 4, 2 / 3]} css={{ position: 'relative' }}>
+        <Box width={[20 / 24, 19 / 24, 18 / 24, 17 / 24]}>
           <Flex flexWrap="wrap">{blogCards}</Flex>
         </Box>
       </Flex>
