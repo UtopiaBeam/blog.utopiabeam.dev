@@ -40,7 +40,7 @@ const Banner = styled(Img)`
 const BlogTitle = props => (
   <Heading
     {...props}
-    fontSize={[26, 28, 30]}
+    fontSize={[24, 26, 28, 30]}
     fontFamily="Kanit, sans-serif"
     fontWeight={500}
     color="rgb(10, 10, 10)"
@@ -51,7 +51,7 @@ const BlogTitle = props => (
 const BlogDate = props => (
   <Text
     {...props}
-    fontSize={[15, 16, 17]}
+    fontSize={[14, 15, 16, 17]}
     fontFamily="Kanit, sans-serif"
     fontWeight={400}
     color="rgba(10, 10, 10, 0.5)"
@@ -59,7 +59,7 @@ const BlogDate = props => (
 );
 
 const Description = props => (
-  <Text {...props} fontSize={[16, 17, 18]} color="rgba(10, 10, 10, 0.8)" />
+  <Text {...props} fontSize={[15, 16, 17, 18]} color="rgba(10, 10, 10, 0.8)" />
 );
 
 export default ({ title, slug, description, date, banner, pathPrefix = '' }: Props) => {
@@ -67,7 +67,7 @@ export default ({ title, slug, description, date, banner, pathPrefix = '' }: Pro
   return (
     <>
       <GlobalStyle />
-      <Box py={3} px={[2, 3, 3]} height="100%">
+      <Box py={3} px={[2, 2, 3, 3]} height="100%">
         <Link href={pathPrefix ? `${pathPrefix}/${slug}` : slug}>
           <BlogCard height="100%">
             {cardBanner}
