@@ -1,7 +1,7 @@
 ---
 title: "มาสร้าง SSO เองแบบง่าย ๆ กันเถอะ [Part 1 — How does it work?]"
 description: Series ที่จะพาสร้าง SSO ของตัวเองแบบง่าย ๆ — อธิบายแบบคร่าว ๆ ว่า SSO คืออะไร มีประโยชน์ยังไง ทำงานยังไง
-date: '2019-09-14'
+date: '2019-09-12'
 tags: Programming
 banner: ./banner.jpg
 featured: false
