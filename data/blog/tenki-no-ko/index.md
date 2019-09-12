@@ -1,5 +1,5 @@
 ---
-title: รีวิว 天気の子 (Tenki no ko) ฤดูฝัน ฉันมีเธอ แบบ no spoil 100%
+title: รีวิว 天気の子 (Tenki no ko) แบบ no spoil 100%
 description: Review 天気の子 แบบปลอดสปอยล์ เล่าความรู้สึกภาพรวม เนื้อเรื่อง และตัวละคร
 date: '2019-09-07'
 tags: Review
