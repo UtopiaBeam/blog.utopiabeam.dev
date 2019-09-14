@@ -56,7 +56,7 @@ export default ({ pageContext, data }: Props) => {
       <Pagination
         numPage={numPage}
         currentPage={currentPage}
-        pathPrefix={tag ? `tag/${tag.slug}` : ''}
+        pathPrefix={tag ? `tags/${tag.slug}` : ''}
       />
       <Footer />
     </>
