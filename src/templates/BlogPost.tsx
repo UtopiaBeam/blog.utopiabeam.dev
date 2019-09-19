@@ -44,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
   }
   pre[class*="language-"] {
     border-radius: 5px;
+    margin-bottom: 34px;
     
     &>code {
       font-size: 17px;
