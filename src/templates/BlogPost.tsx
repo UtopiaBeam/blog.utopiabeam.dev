@@ -47,10 +47,10 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 34px;
     
     &>code {
-      font-size: 17px;
+      font-size: 14px;
 
       @media only screen and (max-width: 420px) {
-        font-size: 16px;
+        font-size: 13px;
       }
     }
   }
