@@ -1,7 +1,7 @@
 ---
 title: "มาสร้าง SSO กันเถอะ [Part 2 — Let's implement SSO API]"
 description: Series ที่จะพาสร้าง SSO ของตัวเองแบบง่าย ๆ — ได้เวลาสนุกแล้วสิ
-date: '2019-09-26'
+date: '2019-09-28'
 tags: Programming
 banner: ./banner.jpg
 featured: true
@@ -9,9 +9,9 @@ featured: true
 
 หลังจาก [part ที่แล้ว](https://blog.utopiabeam.dev/make-sso-part-1/)ได้เกริ่นเกี่ยวพื้นฐานของ SSO แล้ว ใน part นี้เราจะมาลองสร้าง SSO ของตัวเองกันจริง ๆ แล้ว
 
-Stack ที่ใช้ในบล็อกนี้คือ [NestJS](https://nestjs.com/) + [MongoDB](https://www.mongodb.com/) + [Vue.js](https://vuejs.org/) เหตุผลที่ใช้ NestJS เพราะเป็น framework ที่พัฒนาบน ExpressJS ซึ่งตัว framework รองรับภาษา TypeScript มาด้วย และมี library อื่น ๆ ที่ใช้้ง่ายแถมมาด้วย เช่น [`@nestjs/mongoose`](https://github.com/nestjs/mongoose)
+Stack ที่ใช้ในบล็อกนี้คือ [NestJS](https://nestjs.com/) + [MongoDB](https://www.mongodb.com/) + [React](https://reactjs.org/) เหตุผลที่ใช้ NestJS เพราะเป็น framework ที่พัฒนาบน ExpressJS ซึ่งตัว framework รองรับภาษา TypeScript มาด้วย และมี library อื่น ๆ ที่ใช้้ง่ายแถมมาด้วย เช่น [`@nestjs/mongoose`](https://github.com/nestjs/mongoose)
 
-ส่วน Vue.js ไม่มีอะไรมาก อยากลองใช้เฉย ๆ...
+ส่วน React ไม่มีอะไรมาก อยากลองใช้เฉย ๆ...
 
 ถ้าพร้อมแล้วก็เริ่มกันเลยครับ
 
@@ -662,3 +662,7 @@ export class AuthService {
 ![](sso_with_endpoint.jpg)
 
 ในตอนต่อไปจะพาเขียนหน้า frontend ไปด้วยกัน อย่าลืมติดตามกันนะครับ
+
+## Note
+
+เนื่องจากตอนนี้ยังไม่มี frontend และ client อื่นทำให้ลองเทสไม่ได้ วิธีการง่าย ๆ ที่ผมใช้คือเปลี่ยนจาก redirect เป็น response `json` ธรรมดา เช่น `callbackUrl` หรือ `ticket` แต่อย่าลืมเปลี่ยนกลับล่ะครับ
