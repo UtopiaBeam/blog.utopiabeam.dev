@@ -7,11 +7,9 @@ banner: ./banner.jpg
 featured: true
 ---
 
-หลังจาก [part ที่แล้ว](https://blog.utopiabeam.dev/make-sso-part-1/)ได้เกริ่นเกี่ยวพื้นฐานของ SSO แล้ว ใน part นี้เราจะมาลองสร้าง SSO ของตัวเองกันจริง ๆ แล้ว
+หลังจาก [part ที่แล้ว](https://blog.utopiabeam.dev/make-sso-part-1/)ได้เกริ่นเกี่ยวกับพื้นฐานของ SSO แล้ว ใน part นี้เราจะมาลองสร้าง SSO ของตัวเองกันจริง ๆ แล้ว เริ่มจากฝั่ง API ก่อนเลย
 
-Stack ที่ใช้ในบล็อกนี้คือ [NestJS](https://nestjs.com/) + [MongoDB](https://www.mongodb.com/) + [React](https://reactjs.org/) เหตุผลที่ใช้ NestJS เพราะเป็น framework ที่พัฒนาบน ExpressJS ซึ่งตัว framework รองรับภาษา TypeScript มาด้วย และมี library อื่น ๆ ที่ใช้้ง่ายแถมมาด้วย เช่น [`@nestjs/mongoose`](https://github.com/nestjs/mongoose)
-
-ส่วน React ไม่มีอะไรมาก อยากลองใช้เฉย ๆ...
+Stack ที่ใช้ในบล็อกนี้คือ [NestJS](https://nestjs.com/) + [MongoDB](https://www.mongodb.com/) เพราะเป็น framework ที่พัฒนาบน ExpressJS ซึ่งตัว framework รองรับภาษา TypeScript มาด้วย และมี library อื่น ๆ ที่ใช้ง่ายแถมมาด้วย เช่น [`@nestjs/mongoose`](https://github.com/nestjs/mongoose)
 
 ถ้าพร้อมแล้วก็เริ่มกันเลยครับ
 
