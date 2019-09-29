@@ -1,6 +1,6 @@
 ---
-title: "มาสร้าง SSO กันเถอะ [Part 2 — Let's implement SSO API]"
-description: Series ที่จะพาสร้าง SSO ของตัวเองแบบง่าย ๆ — ได้เวลาสนุกแล้วสิ
+title: "มาสร้าง SSO กันเถอะ [Part 2 — API time!]"
+description: Series ที่จะพาสร้าง SSO ของตัวเองแบบง่าย ๆ — มาทำหลังบ้านสุดหรรษากันเถอะ
 date: '2019-09-28'
 tags: Programming
 banner: ./banner.jpg
@@ -189,11 +189,11 @@ export class ClientController {
 
 ถ้ามันขึ้น error ว่าไม่มี `create` ใน `service` ไม่ต้องตกใจ เพราะเรายังไม่ได้เขียนอะไรใน `ClientService`
 
-ก่อนอื่น เนื่องจากระบบนี้จะ generate secret ให้กับ app ที่มาลงทะเบียนกับเรา ก็เลยอยากให้มัน random หน่อย ในที่นี้เลือกใช้ library ชื่อ `uuid` ว่าแล้วก็ลงซะ
+ก่อนอื่น เนื่องจากระบบนี้จะ generate secret ให้กับ app ที่มาลงทะเบียนกับเรา ก็เลยอยากให้มัน random หน่อย ในที่นี้เลือกใช้ library ชื่อ `uuid` แล้วก็ต้องลงตัว encrypt secret ด้วย `bcryptjs` ว่าแล้วก็ลงซะ
 
 ```
-yarn add uuid
-yarn add -D @types/uuid
+yarn add uuid bcryptjs
+yarn add -D @types/uuid @types/bcryptjs
 ```
 
 เสร็จแล้วก็เปิดไฟล์ `client.service.ts` ขึ้นมาแล้วเขียนตามนี้เลย
