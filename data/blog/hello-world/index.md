@@ -1,5 +1,5 @@
 ---
-title: "รีวิว Hello World หนังของคนขี้อายที่พยายามบอกรักแบบ Sci-fi"
+title: "รีวิว Hello World หนัง Sci-fi ของคนขี้อายที่พยายามบอกรักใครซักคน"
 description: มาหาคำตอบว่าทำไมหนังต้องชื่อ Hello World พร้อมรีวิวแบบไม่สปอยล์
 date: '2019-11-29'
 tags: Review
