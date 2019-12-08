@@ -33,7 +33,7 @@ featured: true
 
 ถ้าเรื่อง Tenki no ko เป็นเหมือน MV เพลงแล้วล่ะก็ เรื่องนี้ถือว่าตรงข้ามเลย ไม่ได้มีเพลงอะไรเยอะแยะแต่มาในจังหวะที่ถูกต้องและทำให้อินกับเนื้อเรื่องได้ดีเหมือนกันนะ
 
-เพลงที่ชอบที่สุดก็คือเพลงตอน end credits 'Yesterday (イエスタデイ)' ของ Official髭男dism นั่นเอง
+เพลงที่ชอบที่สุดก็คือเพลง 'Yesterday (イエスタデイ)' ของ Official髭男dism นั่นเอง
 
 `youtube: https://www.youtube.com/watch?v=DuMqFknYHBs`
 
