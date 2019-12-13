@@ -33,9 +33,17 @@ featured: true
 
 ถ้าเรื่อง Tenki no ko เป็นเหมือน MV เพลงแล้วล่ะก็ เรื่องนี้ถือว่าตรงข้ามเลย ไม่ได้มีเพลงอะไรเยอะแยะแต่มาในจังหวะที่ถูกต้องและทำให้อินกับเนื้อเรื่องได้ดีเหมือนกันนะ
 
-เพลงที่ชอบที่สุดก็คือเพลง 'Yesterday (イエスタデイ)' ของ Official髭男dism นั่นเอง
+เพลงที่ชอบที่สุดก็คือเพลง "Yesterday (イエスタデイ)" ของ Official髭男dism นั่นเอง
 
 `youtube: https://www.youtube.com/watch?v=DuMqFknYHBs`
+
+มีอีกสองเพลงในหนังเรื่องนี้ที่ฟังแล้วติดหูมากคือเพลง End credit "NEW WORLD"
+
+`youtube: https://www.youtube.com/watch?v=UY2DlnI-isM`
+
+และเพลง "Lost Game" ซึ่งสร้างอิมแพคในหนังมาก ๆ
+
+`youtube: https://www.youtube.com/watch?v=AhGMZVnfmeU`
 
 # สรุป
 
