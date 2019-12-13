@@ -70,7 +70,9 @@ const GlobalStyle = createGlobalStyle`
     border-left: 0.3em solid rgba(44, 120, 212, 0.6);
 
     @media only screen and (max-width: 420px) {
-      padding: 0 1em;
+      padding: 0 0.75em;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
   table {
