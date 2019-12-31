@@ -5,6 +5,9 @@ const typography = new Typography({
   baseLineHeight: 1.7,
   headerFontFamily: ['Kanit', 'sans-serif'],
   headerWeight: 500,
+  bodyFontFamily: ['Taviraj', 'serif'],
+  bodyWeight: 300,
+  boldWeight: 600,
   scaleRatio: 1.75,
   googleFonts: [
     {
@@ -22,6 +25,10 @@ const typography = new Typography({
     {
       name: 'Roboto Mono',
       styles: ['500'],
+    },
+    {
+      name: 'Taviraj',
+      styles: ['300', '600'],
     },
   ],
 });
