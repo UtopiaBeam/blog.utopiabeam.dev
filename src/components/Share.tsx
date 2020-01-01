@@ -52,19 +52,25 @@ export default ({ title, slug }: Props) => {
         <Label />
         <Flex alignItems="center">
           <Item>
-            <FacebookShareButton url={postUrl}>
-              <FacebookIcon size={40} round={true} />
-            </FacebookShareButton>
+            <div style={{ cursor: 'pointer' }}>
+              <FacebookShareButton url={postUrl}>
+                <FacebookIcon size={40} round={true} />
+              </FacebookShareButton>
+            </div>
           </Item>
           <Item>
-            <TwitterShareButton url={postUrl} title={`${title} by ${author}\n`}>
-              <TwitterIcon size={40} round={true} />
-            </TwitterShareButton>
+            <div style={{ cursor: 'pointer' }}>
+              <TwitterShareButton url={postUrl} title={`${title} by ${author}\n`}>
+                <TwitterIcon size={40} round={true} />
+              </TwitterShareButton>
+            </div>
           </Item>
           <Item>
-            <LineShareButton url={postUrl} title={`${title} by ${author}\n`}>
-              <LineIcon size={40} round={true} />
-            </LineShareButton>
+            <div style={{ cursor: 'pointer' }}>
+              <LineShareButton url={postUrl} title={`${title} by ${author}\n`}>
+                <LineIcon size={40} round={true} />
+              </LineShareButton>
+            </div>
           </Item>
         </Flex>
       </Flex>
