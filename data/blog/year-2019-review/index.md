@@ -98,7 +98,8 @@ featured: true
 
 - หัดใช้ Go
 - ขุดเรื่อง Frontend ให้มากขึ้น
-- ขุดเรื่องการเขียน test ให้ลึกขึ้น
+- หัดเขียน Test จริง ๆ จังซะที
+- ศึกษาเรื่อง Microservices & architecture อื่น ๆ
 - UtopiaBlog v2.0 (Redesign และเขียนใหม่ให้เป็น CMS ไปเลย)
 - ทำหน้า CV/Resume ของตัวเอง
 - ทำ Containerized grader ที่เป็น open-source ของตัวเอง
